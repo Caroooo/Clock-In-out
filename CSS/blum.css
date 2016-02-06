@@ -1,0 +1,149 @@
+/*general */
+.sapMShellBrandingBar {
+    background-color: #FF761F !important;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.sapUiBodyBackground, .sapUiBody {
+    background-repeat: repeat, no-repeat;
+    background-color: #FF761F !important;
+    background-image: none !important;
+    background-repeat: repeat, no-repeat;
+}
+
+.sapMPanelBGTranslucent {
+    background-color: transparent !important;
+}
+
+.sapMShellGlobalOuterBackground {
+    background-color: whitesmoke !important;
+    background-image: none !important;
+}
+
+.sap-desktop .sapMShellCentralBox {
+    box-shadow: none !important;
+}
+
+.sapUshellShellBackground, .sapUiGlobalBackgroundColor, .sapMGlobalBackgroundColor {
+    background-color: whitesmoke !important;
+    background-image: none !important;
+}
+.sapUiUfdShell .sapUiUfdShellBrand {
+    position: absolute;
+    top: 0px;
+    height: 4px;
+    left: 0px;
+    right: 0px;
+    border: medium none;
+    margin: 0px;
+    z-index: 7;
+    background-color: #FF761F !important;
+}
+
+
+.myAppDemoWT {
+    background-color: whitesmoke;
+}
+
+.sapMTitle {
+    text-shadow: 0px 0.0625rem 0px rgba(255, 255, 255, 0.5);
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.sapMTitleStyleAuto {
+    font-size: 2rem !important;
+}
+.sapMTitle {
+    font-weight: normal;
+    color: #333;
+    font-family: Arial,Helvetica,sans-serif;
+    white-space: nowrap;
+    cursor: text;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/*login*/
+
+.loginPane{
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#myShell{
+    background-color: #FF761F !important;
+}
+
+.myInput{
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.sapMInputBaseInner {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center;
+}
+
+.sapMBtn{
+    background-color: #FF761F !important;
+    border: none !important;
+    color: white !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block !important;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none !important;
+    outline: none !important;
+
+}
+
+.sapMBtnInner {
+    background-color: #FF761F !important;
+    border: none !important;
+    color: white !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block !important;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none !important;
+    outline: none !important;
+}
+
+.sapMBtn:hover {
+    background-color: orangered !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.sapMBtnInner:hover{
+    background-color: orangered !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.sapMBtn:active {
+    background-color: orangered !important;
+    transform: translateY(2px) !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.sapMBtnInner:active {
+    background-color: orangered !important;
+    transform: translateY(2px) !important;
+    border: none !important;
+    outline: none !important;
+}
+
+

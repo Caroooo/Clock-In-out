@@ -1,0 +1,37 @@
+<mvc:View
+        controllerName="sap.ui.demo.wt.controller.Outbox"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc">
+    <!--<List-->
+            <!--id="invoiceList"-->
+            <!--class="sapUiResponsiveMargin"-->
+            <!--width="auto"-->
+            <!--items="{-->
+			<!--path : 'invoice>/Invoices',-->
+			<!--sorter : {-->
+				<!--path : 'ShipperName',-->
+				<!--group : true-->
+			<!--}-->
+		<!--}">-->
+
+    <List
+            id="outboxList"
+            headerText="Outbox"
+            class="sapUiResponsiveMargin"
+            width="auto"
+            items="{
+            path : 'out>/Outbox',
+            sorter : {
+                path : 'Date',
+                group : true,
+                descending: true
+            }
+        }">
+        <items>
+            <ObjectListItem
+                    title="{out>Time} {out>ClockType}"
+                    number="{out>State}"/>
+        </items>
+    </List>
+
+</mvc:View>
