@@ -2,7 +2,7 @@
  * Created by Caroline on 31.01.2016.
  */
 
-var stampedIn = "false";
+var stampedIn = false;
 
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
@@ -50,18 +50,24 @@ sap.ui.define([
             if(stampedIn == false){
 
                 MessageToast.show("successfully saved");
-                stampedIn=true;
+
             }else{
                 var dialog = new Dialog({
                     title: 'Warning',
                     type: 'Message',
                     state: 'Warning',
                     content: new Text({
-                        text: 'Ruling the world is a time-consuming task. You will not have a lot of spare time.'
+                        text: 'You are already stamped in. Are you sure you want to stamp in again?'
                     }),
                     beginButton: new Button({
-                        text: 'OK',
+                        text: 'Stamp In',
                         press: function () {
+                            dialog.close();
+                        }
+                    }),
+                    endButton: new Button({
+                        text: 'cancel',
+                        press: function(){
                             dialog.close();
                         }
                     }),
@@ -72,14 +78,45 @@ sap.ui.define([
 
                 dialog.open();
             }
+            stampedIn= true;
 
 
         },
 
         onClockOut: function () {
 
-            MessageToast.show("successfully saved");
-            stampedIn=false;
+            if(stampedIn == true){
+
+                MessageToast.show("successfully saved");
+
+            }else{
+                var dialog = new Dialog({
+                    title: 'Warning',
+                    type: 'Message',
+                    state: 'Warning',
+                    content: new Text({
+                        text: 'You are already stamped out. Are you sure you want to stamp out again?'
+                    }),
+                    beginButton: new Button({
+                        text: 'Stamp Out',
+                        press: function () {
+                            dialog.close();
+                        }
+                    }),
+                    endButton: new Button({
+                        text: 'cancel',
+                        press: function(){
+                            dialog.close();
+                        }
+                    }),
+                    afterClose: function() {
+                        dialog.destroy();
+                    }
+                });
+
+                dialog.open();
+            }
+            stampedIn= false;
         }
     });
 });
