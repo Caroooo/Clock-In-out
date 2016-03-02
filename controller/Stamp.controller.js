@@ -2,15 +2,21 @@
  * Created by Caroline on 31.01.2016.
  */
 
+var stampedIn = "false";
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageToast",
-    "sap/m/MessageStrip"
+    'sap/m/Button',
+    'sap/m/Dialog',
+    'sap/m/Text'
 
-], function (Controller, JSONModel, MessageToast, MessageStrip) {
+], function (Controller, JSONModel, MessageToast, Button, Dialog, Text) {
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Stamp", {
+
+
 
         onInit: function () {
             // create model
@@ -41,22 +47,39 @@ sap.ui.define([
 
         onClockIn: function () {
 
-            var oDraftIndi = this.getView().byId("draftIndi");
+            if(stampedIn == false){
 
-            oDraftIndi.showDraftSaving();
-            oDraftIndi.showDraftSaved();
-            oDraftIndi.clearDraftState();
+                MessageToast.show("successfully saved");
+                stampedIn=true;
+            }else{
+                var dialog = new Dialog({
+                    title: 'Warning',
+                    type: 'Message',
+                    state: 'Warning',
+                    content: new Text({
+                        text: 'Ruling the world is a time-consuming task. You will not have a lot of spare time.'
+                    }),
+                    beginButton: new Button({
+                        text: 'OK',
+                        press: function () {
+                            dialog.close();
+                        }
+                    }),
+                    afterClose: function() {
+                        dialog.destroy();
+                    }
+                });
+
+                dialog.open();
+            }
+
+
         },
 
         onClockOut: function () {
 
-            // read msg from i18n model
-            var oBundle = this.getView().getModel("i18n").getResourceBundle();
-            var sMsg = oBundle.getText("clockOutMsg");
-            // show message
-            MessageToast.show("saving...");
-            MessageToast.setStyle("sapMMsgStripSuccess");
             MessageToast.show("successfully saved");
+            stampedIn=false;
         }
     });
 });

@@ -32,7 +32,7 @@
             <Button
                 text="login"
                 press="onLogin"
-                class="blumButton"/>
+                class="logButton"/>
 
         </content>
     </Panel>

@@ -18,11 +18,11 @@
         <u:paneContent>
             <VBox class="sapUiSmallMargin">
                 <HBox class="sapUiSmallMargin">
-                    <core:Icon src="sap-icon://person-placeholder"/>
+                    <core:Icon src="sap-icon://person-placeholder" class="iconSize1"/>
                     <Title text="14105"/>
                 </HBox>
 
-                <Button icon="sap-icon://log" press="onLogout"/>
+                <Button icon="sap-icon://log" press="onLogout" class="logButton"/>
             </VBox>
         </u:paneContent>
 

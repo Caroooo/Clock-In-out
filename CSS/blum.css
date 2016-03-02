@@ -76,9 +76,26 @@ $blum-orange: #FF671F;
 .sapUiUfdShellHeadItm>span, .sapUiUfdShellHeadUsrItm {
     -webkit-font-smoothing: antialiased;
     text-shadow: none !important;
-    color: whitesmoke !important;
-    border-color: whitesmoke !important;
+    color: white !important;
+    border-color: white !important;
 }
+
+/*menu*/
+.sapUiMedia-Std-Desktop .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSel:hover>span {
+    background-color: grey !important;
+}
+.sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSel:active:hover>span {
+    background-color: grey; !important;
+}
+
+.sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSel>span {
+    background-color: grey !important;
+}
+
+.iconSize1{
+    font-size: 3rem;
+}
+
 
 .sapUiUfdShellHeadBegin .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:after {
    border: none !important;
@@ -125,13 +142,13 @@ $blum-orange: #FF671F;
 }
 
 .sapMITBFilterDefault {
-    color: whitesmoke !important;
+    color: white !important;
 }
 .sapMITBTextOnly .sapMITBFilterDefault.sapMITBSelected>.sapMITBText {
-    color: whitesmoke !important;
+    color: white !important;
 }
 .sapMITBTextOnly .sapMITBFilterDefault>.sapMITBText {
-    color: whitesmoke !important;
+    color: white !important;
     text-shadow: none !important;
 }
 .sapMITBSelected>.sapMITBContentArrow {
@@ -190,6 +207,9 @@ $blum-orange: #FF671F;
     margin-right: auto !important;
     text-align: center;
 }
+/*Button*/
+
+
 
 .sapMBtn{
     background-color:  #FF671F !important;
@@ -203,8 +223,7 @@ $blum-orange: #FF671F;
     border: none !important;
     outline: none !important;
     height: 4rem !important;
-    width: 7.5rem !important;
-
+    width: 7.5rem ;
 }
 
 .sapMBtnBase{
@@ -248,6 +267,15 @@ $blum-orange: #FF671F;
     transform: translateY(2px) !important;
     border: none !important;
     outline: none !important;
+}
+
+.logButton .sapUiIcon:before{
+    color: white !important;
+}
+
+.logButton{
+    width: 100% !important;
+    height: 2rem !important;
 }
 
 .sapUiSmallMarginEnd {
@@ -296,7 +324,12 @@ $blum-orange: #FF671F;
 
 /* MessageToast */
 .sapMMessageToast {
+    background-color: lightgreen !important;
+    color: black !important;
+    text-shadow: none !important;
 
 }
+
+
 
 
