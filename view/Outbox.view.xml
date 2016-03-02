@@ -2,23 +2,18 @@
         controllerName="sap.ui.demo.wt.controller.Outbox"
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc">
-    <!--<List-->
-            <!--id="invoiceList"-->
-            <!--class="sapUiResponsiveMargin"-->
-            <!--width="auto"-->
-            <!--items="{-->
-			<!--path : 'invoice>/Invoices',-->
-			<!--sorter : {-->
-				<!--path : 'ShipperName',-->
-				<!--group : true-->
-			<!--}-->
-		<!--}">-->
 
-    <List
-            id="outboxList"
-            class="sapUiResponsiveMargin"
-            width="auto"
-            items="{
+    <ScrollContainer
+            height="100%"
+            width="100%"
+            horizontal="false"
+            vertical="true"
+            focusable="true">
+        <List
+                id="outboxList"
+                class="sapUiResponsiveMargin"
+                width="auto"
+                items="{
             path : 'out>/Outbox',
             sorter : {
                 path : 'Date',
@@ -26,11 +21,12 @@
                 descending: true
             }
         }">
-        <items>
-            <ObjectListItem
-                    title="{out>Time} {out>ClockType}"
-                    number="{out>State}"/>
-        </items>
-    </List>
+            <items>
+                <ObjectListItem
+                        title="{out>Time} {out>ClockType}"
+                        number="{out>State}"/>
+            </items>
+        </List>
+    </ScrollContainer>
 
 </mvc:View>
