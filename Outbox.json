@@ -1,0 +1,52 @@
+{
+  "Outbox": [
+    {
+      "Date": "31.01.2016",
+      "Time": "17:55",
+      "ClockType": "OUT",
+      "State": "sent"
+    },
+    {
+      "Date": "31.01.2016",
+      "Time": "12:30",
+      "ClockType": "IN",
+      "State": "sent"
+    },
+    {
+      "Date": "31.01.2016",
+      "Time": "12:00",
+      "ClockType": "OUT",
+      "State": "sent"
+    },
+    {
+      "Date": "31.01.2016",
+      "Time": "07:05",
+      "ClockType": "IN",
+      "State": "sent"
+    },
+    {
+      "Date": "30.01.2016",
+      "Time": "17:05",
+      "ClockType": "OUT",
+      "State": "sent"
+    },
+    {
+      "Date": "29.01.2016",
+      "Time": "07:05",
+      "ClockType": "IN",
+      "State": "sent"
+    },
+    {
+      "Date": "29.01.2016",
+      "Time": "07:06",
+      "ClockType": "IN",
+      "State": "sent"
+    },
+    {
+      "Date": "29.01.2016",
+      "Time": "17:05",
+      "ClockType": "OUT",
+      "State": "sent"
+    }
+  ]
+}

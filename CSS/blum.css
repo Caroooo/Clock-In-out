@@ -1,0 +1,302 @@
+/*
+$blum-orange: #FF671F;
+*/
+
+/*general */
+.sapMShellBrandingBar {
+    background-color:  #FF671F !important;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.sapUiBodyBackground, .sapUiBody {
+    background-repeat: repeat, no-repeat;
+    background-color:  #FF671F !important;
+    background-image: none !important;
+    background-repeat: repeat, no-repeat;
+}
+
+.sapMPanelBGTranslucent {
+    background-color: transparent !important;
+}
+
+.sapMShellGlobalOuterBackground {
+    background-color: whitesmoke !important;
+    background-image: none !important;
+}
+
+.sap-desktop .sapMShellCentralBox {
+    box-shadow: none !important;
+    margin:0 !important;
+    left:0 !important;
+    width:100% !important;
+}
+
+.sapUshellShellBackground, .sapUiGlobalBackgroundColor, .sapMGlobalBackgroundColor {
+    background-color: whitesmoke !important;
+    background-image: none !important;
+}
+.sapUiUfdShell .sapUiUfdShellBrand {
+    position: absolute;
+    top: 0px;
+    height: 4px;
+    left: 0px;
+    right: 0px;
+    border: medium none;
+    margin: 0px;
+    z-index: 7;
+    background-color:  #FF671F !important;
+}
+
+.sapUiUfdShellBrand {
+    position: absolute;
+    top: 0px;
+    height: 4px;
+    left: 0px;
+    right: 0px;
+    border: medium none;
+    margin: 0px;
+    z-index: 7;
+    background-color:  #FF671F !important;
+}
+
+#__xmlview2--myShell-brand.sapUiUfdShellBrand{
+    background-color:  #FF671F !important;
+
+}
+
+.sapUiUfdShellHeader{
+    background-color:  #FF671F !important;
+}
+
+.sapUiUfdShellHeadItm>span, .sapUiUfdShellHeadUsrItm {
+    -webkit-font-smoothing: antialiased;
+    text-shadow: none !important;
+    color: whitesmoke !important;
+    border-color: whitesmoke !important;
+}
+
+.sapUiUfdShellHeadBegin .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:after {
+   border: none !important;
+}
+
+.sapUiUfdShellHeadUsrItm:before, .sapUiUfdShellHeadEnd .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:before {
+    border: none !important;
+}
+
+/*menu bar*/
+.sapMITBHead {
+    font-size: medium !important;
+    background-color:  #FF671F !important;
+    padding-right: auto !important;
+    padding-left: auto !important;
+    margin: 0 !important;
+    width:100% !important;
+}
+
+.sapMITBItem{
+    width: 47% !important;
+}
+
+.sapMITBScrollContainer {
+    margin: 0 !important;
+}
+
+.sapMITH .sapMITBNotScrollable{
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.sapMITBTextOnly .sapMITBText {
+    font-size: medium !important;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    text-align: center !important;
+    padding: 10px;
+    width: auto !important;
+}
+
+.sapMITBTextOnly .sapMITBFilter:first-child {
+    margin-left: 20px;
+}
+
+.sapMITBFilterDefault {
+    color: whitesmoke !important;
+}
+.sapMITBTextOnly .sapMITBFilterDefault.sapMITBSelected>.sapMITBText {
+    color: whitesmoke !important;
+}
+.sapMITBTextOnly .sapMITBFilterDefault>.sapMITBText {
+    color: whitesmoke !important;
+    text-shadow: none !important;
+}
+.sapMITBSelected>.sapMITBContentArrow {
+    border-bottom-color: whitesmoke !important;
+}
+
+.sapMITBContent {
+    position:relative !important;
+    scrollbar: none !important;
+}
+
+
+.myAppDemoWT {
+    background-color: whitesmoke;
+}
+
+.sapMTitle {
+    text-shadow: 0px 0.0625rem 0px rgba(255, 255, 255, 0.5);
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.sapMTitleStyleAuto {
+    font-size: 2rem !important;
+}
+.sapMTitle {
+    font-weight: normal;
+    color: #333;
+    font-family: Arial,Helvetica,sans-serif;
+    white-space: nowrap;
+    cursor: text;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/*login*/
+
+.loginPane{
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#myShell{
+    background-color:  #FF671F !important;
+}
+
+.myInput{
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.sapMInputBaseInner {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center;
+}
+
+.sapMBtn{
+    background-color:  #FF671F !important;
+    border: none !important;
+    color: white !important;
+    text-align: center;
+    text-decoration: none !important;
+    display: inline-block !important;
+    font-size: large;
+    border-radius: 4px;
+    border: none !important;
+    outline: none !important;
+    height: 4rem !important;
+    width: 7.5rem !important;
+
+}
+
+.sapMBtnBase{
+    background-color:  #FF671F !important;
+}
+
+.sapMBtnDefault{
+    background-color:  #FF671F !important;
+}
+
+.sapMBtnInner {
+    background-color:  #FF671F !important;
+    background-image: none !important;
+    color: white !important;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem !important;
+    border-radius: 8px;
+    border: none !important;
+    text-shadow: none !important;
+}
+
+.sapMBtn:hover {
+    border: none !important;
+    outline: none !important;
+}
+
+.sapMBtnInner:hover{
+    border: none !important;
+    outline: none !important;
+}
+
+.sapMBtn:active {
+
+    transform: translateY(2px) !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.sapMBtnInner:active {
+    transform: translateY(2px) !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.sapUiSmallMarginEnd {
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+}
+
+.myHBox{
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+}
+
+
+.sapMITBFilterDefault {
+    color:  #FF671F !important;
+
+}
+
+/* calendar*/
+
+.sapMInputBaseInner {
+
+    font-size: large !important;
+    padding-left: 0 !important;
+
+}
+
+/*outbox*/
+.sapMList .sapMLIB.sapMGHLI {
+    height: 2rem;
+    line-height: 2rem;
+    font-size: large !important;
+    font-weight: normal;
+    color: #FF671F !important;
+    background: #f7f7f7;
+    border-bottom: 1px solid grey !important;
+}
+
+.sapMText.sapMObjLTitle {
+    color: black !important;
+    font-size: medium !important;
+    font-weight: normal;
+    line-height: 1.0rem !important;
+}
+
+/* MessageToast */
+.sapMMessageToast {
+
+}
+
+

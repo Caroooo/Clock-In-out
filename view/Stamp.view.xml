@@ -1,0 +1,60 @@
+<mvc:View
+        controllerName="sap.ui.demo.wt.controller.Stamp"
+        xmlns:l="sap.ui.layout"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc">
+    <l:VerticalLayout
+            class="sapUiContentPadding"
+            id="oVerticalContent"
+            width="100%">
+        <l:content>
+
+
+            <VBox class="sapUiSmallMargin">
+
+
+                <FlexBox
+                        height="60px"
+                        alignItems="Center"
+                        justifyContent="Center">
+                    <DatePicker id="myDP" value="{path: '/myDate', type:'sap.ui.model.type.Date' }"
+                                change="handleChange"
+                                class="sapUiSmallMarginBottom"/>
+                </FlexBox>
+                <FlexBox
+                        height="60px"
+                        alignItems="Center"
+                        justifyContent="Center">
+
+                    <TimePicker
+                            id="TP3"
+                            valueFormat="HH:mm"
+                            displayFormat="HH:mm"
+                            change="handleChange"/>
+                </FlexBox>
+
+                <FlexBox
+                        height="100px"
+                        alignItems="Center"
+                        justifyContent="Center">
+                    <items>
+                        <Button
+                                text="{i18n>clockInButtonText}"
+                                press="onClockIn"
+                                class="sapUiSmallMarginEnd"/>
+                        <Button
+                                text="{i18n>clockOutButtonText}"
+                                press="onClockOut"
+                                class="sapUiSmallMarginEnd"
+                                />
+                    </items>
+                </FlexBox>
+
+
+                <DraftIndicator id="draftIndi"></DraftIndicator>
+
+            </VBox>
+
+        </l:content>
+    </l:VerticalLayout>
+</mvc:View>
