@@ -8,7 +8,12 @@
             width="auto">
         <content>
 
-            <Title text="Login" />
+          <!--  <Title text="Login"/> -->
+            <Image
+                    src="logo_blumO.png"
+                    densityAware="false"
+                    width="7rem"
+                    />
             <Input
                     id="BAUInput"
                     class="myInput"
@@ -22,17 +27,17 @@
 						minLength: 2,
 						maxLength: 5
 					}
-				}" />
+				}"/>
 
             <Input
-                type="Password"
-                class="myInput"
-                placeholder="password" />
+                    type="Password"
+                    class="myInput"
+                    placeholder="password"/>
 
             <Button
-                text="login"
-                press="onLogin"
-                class="logButton"/>
+                    text="login"
+                    press="onLogin"
+                    class="logButton"/>
 
         </content>
     </Panel>

@@ -309,15 +309,29 @@ $blum-orange: #FF671F;
     font-size: large !important;
     font-weight: normal;
     color: #FF671F !important;
-    background: #f7f7f7;
-    border-bottom: 1px solid grey !important;
+  /*  background: #f7f7f7;*/
+    background-color: transparent !important;
+    border-bottom: none !important;
+    margin-top: 1rem !important;
 }
 
 .sapMText.sapMObjLTitle {
     color: black !important;
-    font-size: medium !important;
+    font-size: 1rem !important;
     font-weight: normal;
     line-height: 1.0rem !important;
+}
+.sapMLIB.sapMObjLItem {
+    padding-bottom: 0.6rem !important;
+    padding-top: 0.6rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 1rem !important;
+    margin-left: 2rem !important;
+    margin-right: 2rem !important
+}
+
+.sapMObjLNumber {
+    font-size: 1rem !important;
 }
 
 /* MessageToast */
@@ -331,6 +345,26 @@ $blum-orange: #FF671F;
 /*dialog*/
 .sap-desktop .sapMIBar.sapMFooter-CTX {
     background-color: whitesmoke !important;
+}
+
+
+.sapMIBar-CTX.sapMFooter-CTX {
+    text-shadow: none !important;
+    background-color: whitesmoke !important;
+
+}
+
+.sapMDialog>footer {
+    height: 1.5rem !important;
+    position: relative !important;
+}
+
+.sapMDialog>.sapMDialogTitle {
+    height: 3rem !important;
+    position: relative !important;
+    padding-top: 0 !important;
+    padding-bottom: 1rem !important;
+    margin-bottom: 1.5rem !important;
 }
 
 /*timepicker*/

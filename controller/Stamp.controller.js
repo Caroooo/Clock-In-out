@@ -10,7 +10,8 @@ sap.ui.define([
     "sap/m/MessageToast",
     'sap/m/Button',
     'sap/m/Dialog',
-    'sap/m/Text'
+    'sap/m/Text',
+
 
 ], function (Controller, JSONModel, MessageToast, Button, Dialog, Text) {
     "use strict";
@@ -63,6 +64,8 @@ sap.ui.define([
                         text: 'Stamp In',
                         press: function () {
                             dialog.close();
+                            MessageToast.show("successfully saved");
+
                         }
                     }),
                     endButton: new Button({
@@ -101,6 +104,7 @@ sap.ui.define([
                         text: 'Stamp Out',
                         press: function () {
                             dialog.close();
+                            MessageToast.show("successfully saved");
                         }
                     }),
                     endButton: new Button({
