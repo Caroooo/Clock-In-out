@@ -96,7 +96,6 @@ $blum-orange: #FF671F;
     font-size: 3rem;
 }
 
-
 .sapUiUfdShellHeadBegin .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:after {
    border: none !important;
 }
@@ -160,7 +159,6 @@ $blum-orange: #FF671F;
     position:relative !important;
     scrollbar: none !important;
 }
-
 
 .myAppDemoWT {
     background-color: whitesmoke;
@@ -284,17 +282,13 @@ $blum-orange: #FF671F;
 .myHBox{
     margin-left: auto !important;
     margin-right: auto !important;
-
 }
-
 
 .sapMITBFilterDefault {
     color:  #FF671F !important;
-
 }
 
 /* calendar*/
-
 .sapMInputBaseInner {
 
     font-size: large !important;
@@ -336,9 +330,10 @@ $blum-orange: #FF671F;
 
 /* MessageToast */
 .sapMMessageToast {
-    background-color: lightgreen !important;
-    color: black !important;
+    background-color: transparent !important;
+    color: green !important;
     text-shadow: none !important;
+    icon: "sap-icon://accept";
 
 }
 
@@ -371,7 +366,6 @@ $blum-orange: #FF671F;
 
 .sapMInputBaseInner:not(.sapMInputBaseReadonlyInner):not(.sapMInputBaseStateInner):not(.sapMInputBaseDisabledInner):hover {
     border-color: grey !important;
-
 }
 
 .sapMTimePicker.sapMTPInputActive .sapUiIcon {

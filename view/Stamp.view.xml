@@ -50,8 +50,10 @@
                     </items>
                 </FlexBox>
 
-
-                <DraftIndicator id="draftIndi"></DraftIndicator>
+                <l:VerticalLayout
+                        class="sapUiContentPadding"
+                        id="oVerticalContent"
+                        width="100%"/>
 
             </VBox>
 
