@@ -412,6 +412,29 @@ $blum-orange: #FF671F;
     color: darkgrey !important;
 }
 
+/*Pages - Menubar*/
 
+
+.sapMTB {
+    padding: 0;
+    height: 3rem;
+    background: #FF671F !important;
+    border-bottom: none !important;
+    margin: 0 !important;
+}
+
+.menuButton{
+    width: 2rem;
+    height: 2rem;
+    border: medium  !important;
+    border-color: white !important;
+}
+
+.menuButton .sapMBtnIcon {
+    color: white !important;
+    border: medium  !important;
+    border-color: white !important;
+
+}
 
 

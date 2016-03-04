@@ -3,10 +3,11 @@
  */
 
 sap.ui.define([
+    'jquery.sap.global',
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     'sap/ui/Device'
-], function (Controller, JSONModel, Device) {
+], function (jQuery, Controller, JSONModel, Device) {
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Outbox", {
         metadata : {
