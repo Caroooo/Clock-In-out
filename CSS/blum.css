@@ -413,8 +413,9 @@ $blum-orange: #FF671F;
 }
 
 /*Pages - Menubar*/
-
-
+.sapMPage>section {
+    height: 30rem;
+}
 .sapMTB {
     padding: 0;
     height: 3rem;

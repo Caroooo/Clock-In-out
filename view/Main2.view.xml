@@ -7,20 +7,15 @@
         xmlns="sap.m"
         class="viewPadding">
 
-    <Page
-            class="sapUiContentPadding"
-            showNavButton="false"
-            showHeader="false"
-            enableScrolling="true">
+    <Toolbar>
+        <Button id="openMenu" icon="sap-icon://menu2" press="handlePressOpenMenu" class="menuButton" />
+        <Image
+                src="logo-blum.png"
+                densityAware="false"
+                width="5rem"/>
+    </Toolbar>
 
-        <Toolbar>
-            <Button id="openMenu" icon="sap-icon://menu2" press="handlePressOpenMenu" class="menuButton" />
-            <Image
-                    src="logo-blum.png"
-                    densityAware="false"
-                    width="5rem"/>
-        </Toolbar>
-        <content>
+
             <IconTabBar
                     id="idIconTabBarSeparatorNoIcon"
                     expanded="true"
@@ -37,6 +32,5 @@
 
                 </items>
             </IconTabBar>
-        </content>
-    </Page>
+
 </mvc:View>

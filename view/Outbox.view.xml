@@ -1,19 +1,18 @@
 <mvc:View
         controllerName="sap.ui.demo.wt.controller.Outbox"
         xmlns:mvc="sap.ui.core.mvc"
-        xmlns="sap.m">
-    <ScrollContainer
-            height="100%"
-            width="100%"
-            horizontal="false"
-            vertical="true"
-            focusable="true">
-
-        <List
-                id="outboxList"
-                class="sapUiResponsiveMargin"
-                width="auto"
-                items="{
+        xmlns="sap.m"
+        height="100%"
+        width="100%">
+    <Page
+            class="sapUiContentPadding"
+            showNavButton="false"
+            showHeader="false">
+         <List
+                    id="outboxList"
+                    class="sapUiResponsiveMargin"
+                    width="auto"
+                    items="{
             path : 'out>/Outbox',
             sorter : {
                 path : 'Date',
@@ -21,12 +20,12 @@
                 descending: true
             }
         }">
-            <items>
-                <ObjectListItem
-                        title="{out>Time} {out>ClockType}"
-                        number="{out>State}"/>
-            </items>
-        </List>
-    </ScrollContainer>
+                <items>
+                    <ObjectListItem
+                            title="{out>Time} {out>ClockType}"
+                            number="{out>State}"/>
+                </items>
+            </List>
+  </Page>
 
 </mvc:View>
