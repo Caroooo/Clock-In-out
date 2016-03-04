@@ -2,7 +2,12 @@
         controllerName="sap.ui.demo.wt.controller.Outbox"
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m">
-
+    <ScrollContainer
+            height="100%"
+            width="100%"
+            horizontal="false"
+            vertical="true"
+            focusable="true">
 
         <List
                 id="outboxList"
@@ -22,5 +27,6 @@
                         number="{out>State}"/>
             </items>
         </List>
+    </ScrollContainer>
 
 </mvc:View>

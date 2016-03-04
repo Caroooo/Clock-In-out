@@ -46,6 +46,15 @@ sap.ui.define([
             }
 
             MessageToast.show(msg);
+        },
+        onLogout : function(oEvent){
+            var oShell = this.getView().byId("myShell");
+            var bState = oShell.getShowPane();
+            oShell.setShowPane(!bState);
+
+
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("login");
         }
     });
 
