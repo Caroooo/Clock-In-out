@@ -92,10 +92,13 @@ $blum-orange: #FF671F;
     background-color: grey !important;
 }
 
-.iconSize1{
-    font-size: 3rem;
-}
 
+.iconSize1{
+    font-size: 2rem;
+}
+.sapMTitle {
+    text-shadow: none !important;
+}
 .sapUiUfdShellHeadBegin .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:after {
    border: none !important;
 }
@@ -148,7 +151,7 @@ $blum-orange: #FF671F;
     color: white !important;
 }
 .sapMITBTextOnly .sapMITBFilterDefault>.sapMITBText {
-    color: white !important;
+    color: #ffc7ad !important;
     text-shadow: none !important;
 }
 .sapMITBSelected>.sapMITBContentArrow {
@@ -170,7 +173,7 @@ $blum-orange: #FF671F;
     margin-right: auto !important;
 }
 .sapMTitleStyleAuto {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
 }
 .sapMTitle {
     font-weight: normal;
@@ -413,8 +416,13 @@ $blum-orange: #FF671F;
 }
 
 /*Pages - Menubar*/
+.sapMPage {
+    position: absolute;
+}
+
 .sapMPage>section {
-    height: 30rem;
+    position: relative !important;
+    height: 25rem;
 }
 .sapMTB {
     padding: 0;

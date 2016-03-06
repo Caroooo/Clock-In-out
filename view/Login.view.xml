@@ -8,12 +8,13 @@
             width="auto">
         <content>
 
-          <!--  <Title text="Login"/> -->
             <Image
                     src="logo_blumO.png"
                     densityAware="false"
                     width="7rem"
                     />
+
+
             <Input
                     id="BAUInput"
                     class="myInput"
@@ -29,10 +30,12 @@
 					}
 				}"/>
 
+
             <Input
                     type="Password"
                     class="myInput"
                     placeholder="password"/>
+
 
             <Button
                     text="login"

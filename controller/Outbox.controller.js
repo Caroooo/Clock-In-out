@@ -18,6 +18,13 @@ sap.ui.define([
             var sNamespace = this.getMetadata().getManifestEntry("sap.app").id;
             var oOutboxModel = new JSONModel(jQuery.sap.getModulePath(sNamespace, oConfig.outboxLocal));
             this.setModel(oOutboxModel, "outbox");
+        },
+        handleRefresh : function (evt) {
+            var that = this;
+            setTimeout(function () {
+                that.getView().byId("pullToRefresh").hide();
+                that._pushNewProduct();
+            }, 1000);
         }
 
     });

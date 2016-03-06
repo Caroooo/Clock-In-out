@@ -112,8 +112,11 @@ sap.ui.define([
                 });
 
             oVC.addContent(oMsgStrip);
-            //   this.sleep(1000);
-            //  oMsgStrip.closeText();
+            var oMs = sap.ui.getCore().byId("msgStrip");
+            setTimeout(function(){
+                oMs.destroy();
+            }, 2000);
+
         },
 
         onClockOut: function () {

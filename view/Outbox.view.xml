@@ -8,6 +8,9 @@
             class="sapUiContentPadding"
             showNavButton="false"
             showHeader="false">
+        <PullToRefresh
+                id="pullToRefresh"
+                refresh="handleRefresh" />
          <List
                     id="outboxList"
                     class="sapUiResponsiveMargin"
