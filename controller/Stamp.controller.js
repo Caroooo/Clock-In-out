@@ -50,6 +50,7 @@ sap.ui.define([
 
             if(stampedIn == false){
 
+                localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
                 this.generateMessageStrip("Success");
               //  MessageToast.show("successfully saved");
 
@@ -65,7 +66,10 @@ sap.ui.define([
                         text: 'Stamp In',
                         press: function () {
                             dialog.close();
+                            localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
+
                             this.generateMessageStrip("Success");
+
                           //  MessageToast.show("successfully saved");
 
                         }
@@ -86,14 +90,6 @@ sap.ui.define([
             stampedIn= true;
 
 
-        },
-        sleep : function(milliseconds){
-            var start = new Date().getTime();
-            for (var i = 0; i < 1e7; i++) {
-                if ((new Date().getTime() - start) > milliseconds){
-                    break;
-                }
-            }
         },
         generateMessageStrip : function(type){
             var oMs = sap.ui.getCore().byId("msgStrip");
@@ -123,6 +119,7 @@ sap.ui.define([
 
             if(stampedIn == true){
 
+                localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
                 this.generateMessageStrip("Success");
               //  MessageToast.show("successfully saved");
 
@@ -138,6 +135,7 @@ sap.ui.define([
                         text: 'Stamp Out',
                         press: function () {
                             dialog.close();
+                            localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
                             this.generateMessageStrip("Success");
                          //   MessageToast.show("successfully saved");
                         }
