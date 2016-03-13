@@ -4,14 +4,14 @@
         xmlns="sap.m"
         height="100%"
         width="100%">
-    <!--<Page-->
-            <!--class="sapUiContentPadding"-->
-            <!--showNavButton="false"-->
-            <!--showHeader="false">-->
-        <ScrollContainer
-                horizontal="true"
-                vertical="true"
-                focusable="true">
+    <Page
+            class="sapUiContentPadding"
+            showNavButton="false"
+            showHeader="false">
+        <!--<ScrollContainer-->
+                <!--horizontal="true"-->
+                <!--vertical="true"-->
+                <!--focusable="true">-->
         <PullToRefresh
                 id="pullToRefresh"
                 refresh="handleRefresh" />
@@ -33,7 +33,7 @@
                             number="{out>State}"/>
                 </items>
             </List>
-    </ScrollContainer>
-  <!--</Page>-->
+    <!--</ScrollContainer>-->
+  </Page>
 
 </mvc:View>

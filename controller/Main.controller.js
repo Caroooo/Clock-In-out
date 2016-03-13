@@ -30,7 +30,6 @@ sap.ui.define([
             var bState = oShell.getShowPane();
             oShell.setShowPane(!bState);
 
-
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("login");
         }
