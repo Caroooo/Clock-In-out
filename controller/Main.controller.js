@@ -9,24 +9,20 @@ sap.ui.define([
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Main", {
 
-
-        handlePressConfiguration : function(oEvent) {
+        handlePressConfiguration: function(oEvent) {
             var oItem = oEvent.getSource();
             var oShell = this.getView().byId("myShell");
             var bState = oShell.getShowPane();
             oShell.setShowPane(!bState);
-            if(bState == false){
-                //make view disable
-               // var x = document.getElementById("idIconTabBarSeparatorNoIcon");
-               // x.setAttribute("disable", "true");
-                console.log("menu open");
+            if (bState === false){
+                oShell.$().find(".sapUiUfdSpltContCanvas").append("<div class='shellOverlay'></div>");
+                oShell.$().find(".sapUiUfdSpltContCanvas .shellOverlay").one("click", function(){
+                    oShell.setShowPane(false);
+                    oShell.$().find(".sapUiUfdSpltContCanvas .shellOverlay").remove();
+                });
             }else{
-                //make view able
-                console.log("menu closed");
+                oShell.$().find(".sapUiUfdSpltContCanvas .shellOverlay").remove();
             }
-          //  oItem.setShowMarker(!bState);
-            // oItem.setSelected(!bState);
-
         },
 
         onLogout : function(oEvent){

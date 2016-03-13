@@ -24,8 +24,6 @@ $blum-orange: #FF671F;
     background-color: transparent !important;
 }
 
-
-
 .sap-desktop .sapMShellCentralBox {
     box-shadow: none !important;
     margin:0 !important;
@@ -262,6 +260,13 @@ $blum-orange: #FF671F;
     margin-top: 1rem !important;
 }
 
+.sapMITB,
+.sapMITBContainerContent,
+.sapMITBContainerContent .sapMITBContent,
+.sapMITBContainerContent .sapMITBContent .sapUiView.sapUiViewDisplayBlock.sapUiXMLView{
+    height: 100%;
+}
+
 .sapMText.sapMObjLTitle {
     color: black !important;
     font-size: 1rem !important;
@@ -351,11 +356,11 @@ $blum-orange: #FF671F;
 
 .sapMPage>section {
     position: relative !important;
-    height: 25rem;
+    /*height: 25rem;*/
 }
 .sapMTB {
     padding: 0;
-    height: 3rem;
+    /*height: 3rem;*/
     background: #FF671F !important;
     border-bottom: none !important;
     margin: 0 !important;
