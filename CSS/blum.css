@@ -354,10 +354,10 @@ $blum-orange: #FF671F;
     position: absolute;
 }
 
-.sapMPage>section {
-    position: relative !important;
-    /*height: 25rem;*/
-}
+/*.sapMPage>section {*/
+    /*position: relative !important;*/
+    /*/!*height: 25rem;*!/*/
+/*}*/
 .sapMTB {
     padding: 0;
     /*height: 3rem;*/
