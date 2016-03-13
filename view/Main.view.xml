@@ -34,11 +34,11 @@
                         expandable="false">
                     <items>
                         <IconTabFilter
-                                text="Clock it">
+                                text="{i18n>clockItMenuText}">
                             <mvc:XMLView viewName="sap.ui.demo.wt.view.Stamp"/>
                         </IconTabFilter>
                         <IconTabFilter
-                                text="Outbox">
+                                text="{i18n>OutboxMenuText}">
                             <mvc:XMLView viewName="sap.ui.demo.wt.view.Outbox"/>
                         </IconTabFilter>
 
