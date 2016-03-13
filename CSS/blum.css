@@ -24,10 +24,7 @@ $blum-orange: #FF671F;
     background-color: transparent !important;
 }
 
-.sapMShellGlobalOuterBackground {
-    background-color: whitesmoke !important;
-    background-image: none !important;
-}
+
 
 .sap-desktop .sapMShellCentralBox {
     box-shadow: none !important;
@@ -36,7 +33,7 @@ $blum-orange: #FF671F;
     width:100% !important;
 }
 
-.sapUshellShellBackground, .sapUiGlobalBackgroundColor, .sapMGlobalBackgroundColor {
+.sapUshellShellBackground, .sapUiGlobalBackgroundColor, .sapMGlobalBackgroundColor, .sapMShellGlobalOuterBackground {
     background-color: whitesmoke !important;
     background-image: none !important;
 }
@@ -52,24 +49,23 @@ $blum-orange: #FF671F;
     background-color:  #FF671F !important;
 }
 
-.sapUiUfdShellBrand {
-    position: absolute;
-    top: 0px;
-    height: 4px;
-    left: 0px;
-    right: 0px;
-    border: medium none;
-    margin: 0px;
-    z-index: 7;
-    background-color:  #FF671F !important;
-}
+/*.sapUiUfdShellBrand {*/
+    /*position: absolute;*/
+    /*top: 0px;*/
+    /*height: 4px;*/
+    /*left: 0px;*/
+    /*right: 0px;*/
+    /*border: medium none;*/
+    /*margin: 0px;*/
+    /*z-index: 7;*/
+    /*background-color:  #FF671F !important;*/
+/*}*/
 
-#__xmlview2--myShell-brand.sapUiUfdShellBrand{
-    background-color:  #FF671F !important;
-
-}
-
-.sapUiUfdShellHeader{
+#__xmlview2--myShell-brand.sapUiUfdShellBrand,
+.sapUiUfdShellHeader,
+#myShell,
+.sapMBtnBase,
+.sapMBtnDefault{
     background-color:  #FF671F !important;
 }
 
@@ -81,17 +77,11 @@ $blum-orange: #FF671F;
 }
 
 /*menu*/
-.sapUiMedia-Std-Desktop .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSel:hover>span {
+.sapUiMedia-Std-Desktop .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSel:hover>span,
+.sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSel:active:hover>span,
+.sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSel>span{
     background-color: grey !important;
 }
-.sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSel:active:hover>span {
-    background-color: grey; !important;
-}
-
-.sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSel>span {
-    background-color: grey !important;
-}
-
 
 .iconSize1{
     font-size: 2rem;
@@ -99,12 +89,9 @@ $blum-orange: #FF671F;
 .sapMTitle {
     text-shadow: none !important;
 }
-.sapUiUfdShellHeadBegin .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:after {
+.sapUiUfdShellHeadBegin .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:after,
+.sapUiUfdShellHeadUsrItm:before, .sapUiUfdShellHeadEnd .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:before{
    border: none !important;
-}
-
-.sapUiUfdShellHeadUsrItm:before, .sapUiUfdShellHeadEnd .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:before {
-    border: none !important;
 }
 
 /*menu bar*/
@@ -144,12 +131,10 @@ $blum-orange: #FF671F;
     margin-left: 20px;
 }
 
-.sapMITBFilterDefault {
+.sapMITBTextOnly .sapMITBFilterDefault.sapMITBSelected>.sapMITBText, .sapMITBFilterDefault {
     color: white !important;
 }
-.sapMITBTextOnly .sapMITBFilterDefault.sapMITBSelected>.sapMITBText {
-    color: white !important;
-}
+
 .sapMITBTextOnly .sapMITBFilterDefault>.sapMITBText {
     color: #ffc7ad !important;
     text-shadow: none !important;
@@ -188,27 +173,12 @@ $blum-orange: #FF671F;
 
 /*login*/
 
-.loginPane{
+.loginPane, .myInput, .sapMInputBaseInner{
     text-align: center;
     margin-left: auto !important;
     margin-right: auto !important;
 }
 
-#myShell{
-    background-color:  #FF671F !important;
-}
-
-.myInput{
-    text-align: center;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.sapMInputBaseInner {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center;
-}
 /*Button*/
 .sapMBtn{
     background-color:  #FF671F !important;
@@ -225,14 +195,6 @@ $blum-orange: #FF671F;
     width: 7.5rem ;
 }
 
-.sapMBtnBase{
-    background-color:  #FF671F !important;
-}
-
-.sapMBtnDefault{
-    background-color:  #FF671F !important;
-}
-
 .sapMBtnInner {
     background-color:  #FF671F !important;
     background-image: none !important;
@@ -245,24 +207,13 @@ $blum-orange: #FF671F;
     text-shadow: none !important;
 }
 
-.sapMBtn:hover {
+.sapMBtn:hover, .sapMBtnInner:hover {
     border: none !important;
     outline: none !important;
 }
 
-.sapMBtnInner:hover{
-    border: none !important;
-    outline: none !important;
-}
+.sapMBtn:active , .sapMBtnInner:active{
 
-.sapMBtn:active {
-
-    transform: translateY(2px) !important;
-    border: none !important;
-    outline: none !important;
-}
-
-.sapMBtnInner:active {
     transform: translateY(2px) !important;
     border: none !important;
     outline: none !important;
@@ -293,7 +244,6 @@ $blum-orange: #FF671F;
 
 /* calendar*/
 .sapMInputBaseInner {
-
     font-size: large !important;
     padding-left: 0 !important;
 
@@ -331,25 +281,14 @@ $blum-orange: #FF671F;
     font-size: 1rem !important;
 }
 
-/* MessageToast */
-.sapMMessageToast {
-    background-color: transparent !important;
-    color: green !important;
-    text-shadow: none !important;
-    icon: "sap-icon://accept";
-
-}
-
 /*dialog*/
 .sap-desktop .sapMIBar.sapMFooter-CTX {
     background-color: whitesmoke !important;
 }
 
-
 .sapMIBar-CTX.sapMFooter-CTX {
     text-shadow: none !important;
     background-color: whitesmoke !important;
-
 }
 
 .sapMDialog>footer {
@@ -371,26 +310,21 @@ $blum-orange: #FF671F;
     border-color: grey !important;
 }
 
-.sapMTimePicker.sapMTPInputActive .sapUiIcon {
+.sapMTimePicker.sapMTPInputActive .sapUiIcon,
+.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem:active{
     background-color: grey !important;
 }
-.sapMTimePicker.sapMTPInputActive .sapMInputBase {
+.sapMTimePicker.sapMTPInputActive .sapMInputBase,
+.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner{
     border: 1px solid grey !important;
 }
 
-.sapMTimePicker.sapMTPInputActive .sapMInputBase:active {
+.sapMTimePicker.sapMTPInputActive .sapMInputBase:active,
+.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner:active{
     border: 1px solid grey !important;
     background-color: grey !important;
 }
 
-.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner {
-    border: 1px solid grey !important;
-}
-
-.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner:active {
-    border: 1px solid grey !important;
-    background-color: grey !important;
-}
 .sapMTimePicker.sapMTPInputActive .sapMInputBaseInner:hover {
     border: 1px solid grey !important;
     color: white !important;
@@ -400,11 +334,6 @@ $blum-orange: #FF671F;
     background-color: grey !important;
     color: white !important;
 }
-
-.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem:active {
-    background-color: grey !important;
-}
-
 
 .sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem {
     background-color: lightgrey !important;
@@ -443,7 +372,6 @@ $blum-orange: #FF671F;
     color: white !important;
     border: medium  !important;
     border-color: white !important;
-
 }
 
 

@@ -24,7 +24,7 @@ sap.ui.define([
             var that = this;
             setTimeout(function () {
                 that.getView().byId("pullToRefresh").hide();
-                that._pushNewProduct();
+              //  that._pushNewProduct();
             }, 1000);
         }
 
