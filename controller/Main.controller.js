@@ -14,7 +14,7 @@ sap.ui.define([
             var oShell = this.getView().byId("myShell");
             var bState = oShell.getShowPane();
             oShell.setShowPane(!bState);
-            if (bState == false){
+            if (bState === false){
                 var shellContainer = oShell.$().find("#__xmlview1--myShell-container-canvas");
                 shellContainer.append("<div class='shellOverlay'></div>");
                 shellContainer.find(".shellOverlay").one("click", function(){
