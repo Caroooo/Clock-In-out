@@ -4,7 +4,7 @@
 
 
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
 ], function (Controller) {
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Main", {
@@ -14,14 +14,15 @@ sap.ui.define([
             var oShell = this.getView().byId("myShell");
             var bState = oShell.getShowPane();
             oShell.setShowPane(!bState);
-            if (bState === false){
-                oShell.$().find(".sapUiUfdSpltContCanvas").append("<div class='shellOverlay'></div>");
-                oShell.$().find(".sapUiUfdSpltContCanvas .shellOverlay").one("click", function(){
+            if (bState == false){
+                var shellContainer = oShell.$().find("#__xmlview1--myShell-container-canvas");
+                shellContainer.append("<div class='shellOverlay'></div>");
+                shellContainer.find(".shellOverlay").one("click", function(){
                     oShell.setShowPane(false);
-                    oShell.$().find(".sapUiUfdSpltContCanvas .shellOverlay").remove();
+                    shellContainer.find(".shellOverlay").remove();
                 });
             }else{
-                oShell.$().find(".sapUiUfdSpltContCanvas .shellOverlay").remove();
+                shellContainer.find(".shellOverlay").remove();
             }
         },
 

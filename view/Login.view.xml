@@ -19,7 +19,7 @@
                     id="BAUInput"
                     class="myInput"
                     type="Text"
-                    placeholder="BAU-number (f.ex.: 14105)"
+                    placeholder="{i18n>loginUsernamePlaceholder}"
                     valueStateText="The BAU-number has between 2 an 5 numbers"
                     value="{
 					path : '/number',
@@ -34,7 +34,7 @@
             <Input
                     type="Password"
                     class="myInput"
-                    placeholder="password"/>
+                    placeholder="{i18n>loginPasswordPlaceholder}"/>
 
 
             <Button

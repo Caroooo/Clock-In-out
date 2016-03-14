@@ -102,7 +102,7 @@ sap.ui.define([
 
                 oMsgStrip = new sap.m.MessageStrip("msgStrip", {
                     text: "Successfully saved",
-                    showCloseButton: true,
+                    showCloseButton: false,
                     showIcon: true,
                     type: aType
                 });

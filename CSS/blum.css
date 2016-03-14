@@ -92,6 +92,16 @@ $blum-orange: #FF671F;
    border: none !important;
 }
 
+
+/* side menu overlay */
+.shellOverlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+}
+
 /*menu bar*/
 .sapMITBHead {
     font-size: medium !important;
@@ -378,5 +388,7 @@ $blum-orange: #FF671F;
     border: medium  !important;
     border-color: white !important;
 }
+
+
 
 
