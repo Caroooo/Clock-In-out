@@ -307,18 +307,16 @@ $blum-orange: #FF671F;
     background-color: whitesmoke !important;
 }
 
+.sapMDialog{
+    height: 5rem;
+}
+
 .sapMDialog>footer {
     height: 1.5rem !important;
     position: relative !important;
 }
 
-.sapMDialog>.sapMDialogTitle {
-    height: 3rem !important;
-    position: relative !important;
-    padding-top: 0 !important;
-    padding-bottom: 1rem !important;
-    margin-bottom: 1.5rem !important;
-}
+
 
 /*timepicker*/
 

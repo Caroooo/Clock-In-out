@@ -17,8 +17,6 @@ sap.ui.define([
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Stamp", {
 
-
-
         onInit: function () {
             // create model
             var oModel = new JSONModel();
@@ -93,8 +91,6 @@ sap.ui.define([
                 dialog.open();
             }
             stampedIn= true;
-
-
         },
         generateMessageStrip : function(type){
             // read msg from i18n model
