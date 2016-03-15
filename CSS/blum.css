@@ -100,6 +100,7 @@ $blum-orange: #FF671F;
     height: 100%;
     background-color: black;
     opacity: 0.3;
+    z-index: 300;
 }
 
 /*menu bar*/
