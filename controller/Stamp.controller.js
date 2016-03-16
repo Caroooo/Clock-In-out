@@ -52,9 +52,8 @@ sap.ui.define([
 
             if(stampedIn == false){
 
-                localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
+                //localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
                 this.generateMessageStrip("Success");
-              //  MessageToast.show("successfully saved");
 
             }else{
 
@@ -69,11 +68,9 @@ sap.ui.define([
                         text: oBundle.getText("clockInButtonText"),
                         press: function () {
                             dialog.close();
-                            localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
-
+                            //todo: does not work: generateMessageStrip
                             this.generateMessageStrip("Success");
-
-                          //  MessageToast.show("successfully saved");
+                            //localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
 
                         }
                     }),
@@ -128,9 +125,8 @@ sap.ui.define([
 
             if(stampedIn == true){
 
-                localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
+                //localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
                 this.generateMessageStrip("Success");
-              //  MessageToast.show("successfully saved");
 
             }else{
                 var dialog = new Dialog({
@@ -144,9 +140,9 @@ sap.ui.define([
                         text: oBundle.getText("clockOutButtonText"),
                         press: function () {
                             dialog.close();
-                            localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
+                            //localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
+                            //todo: does not work: generateMessageStrip
                             this.generateMessageStrip("Success");
-                         //   MessageToast.show("successfully saved");
                         }
                     }),
                     endButton: new Button({
@@ -156,10 +152,10 @@ sap.ui.define([
                         }
                     }),
                     afterClose: function() {
+
                         dialog.destroy();
                     }
                 });
-
                 dialog.open();
             }
             stampedIn= false;

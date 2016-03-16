@@ -111,15 +111,23 @@ sap.ui.define([
 
             xhr.onerror = function() {
                 console.log('There was an error!');
+                alert("there was an error!");
             };
 
             xhr.onreadystatechange = this.sendRequest_callback(xhr);
             // xhr.open("POST", "https://e-services.blum.com/SUS1001/services/SUS", true);
             xhr.setRequestHeader("Content-Type", "application/soap+xml; charset=utf-8; action=urn:logon;");
             //content-type application/xml
-            xhr.setRequestHeader("Host", "https://e-services.blum.com/");
+          //  xhr.setRequestHeader("Host", "https://e-services.blum.com/");
             xhr.send("<soapenv:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:ser=\"http://services.ws.sus.blum.com\" xmlns:xsd=\"http://ws.utils.framework.blum.com/xsd\">"
-                +"<soap:Header/>"
+                +"<soap:Header>"
+                +"<wsse:Security>"
+                +"<wsse:UsernameToken>"
+                +"<wsse:Username>SUSUser</wsse:Username>"
+                +"<wsse:Password>nfzprHWyYTK2jooacyJn</wsse:Password>"
+                +"</wsse:UsernameToken>"
+                +"</wsse:Security>"
+                +"</soap:Header>"
                 + "<soap:Body>"
                 + "<ser:logon>"
                 + "<ser:reqHeader>"
