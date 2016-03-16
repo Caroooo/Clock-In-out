@@ -1,0 +1,51 @@
+<mvc:View
+        controllerName="sap.ui.demo.wt.controller.Main"
+        xmlns:u="sap.ui.unified"
+        xmlns:core="sap.ui.core"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m"
+        heigth="100%"
+        class="viewPadding">
+
+
+    <u:Shell id="myShell" icon="logo-blum.png">
+        <u:headItems>
+            <u:ShellHeadItem
+                    tooltip="Configuration"
+                    icon="sap-icon://menu2"
+                    press="handlePressConfiguration"/>
+        </u:headItems>
+
+        <u:paneContent>
+            <VBox class="sapUiSmallMargin">
+                <HBox class="sapUiSmallMargin">
+                    <core:Icon src="sap-icon://person-placeholder" class="iconSize1"/>
+                    <Title text="14105"/>
+                </HBox>
+
+                <Button icon="sap-icon://log" press="onLogout" class="logButton"/>
+            </VBox>
+        </u:paneContent>
+
+
+                <IconTabBar
+                        id="idIconTabBarSeparatorNoIcon"
+                        expanded="true"
+                        expandable="false">
+                    <items>
+                        <IconTabFilter
+                                text="{i18n>clockItMenuText}">
+                            <mvc:XMLView viewName="sap.ui.demo.wt.view.Stamp"/>
+                        </IconTabFilter>
+                        <IconTabFilter
+                                text="{i18n>OutboxMenuText}">
+                            <mvc:XMLView viewName="sap.ui.demo.wt.view.Outbox"/>
+                        </IconTabFilter>
+
+                    </items>
+                </IconTabBar>
+
+    </u:Shell>
+
+
+</mvc:View>
