@@ -19,8 +19,8 @@
                     id="BAUInput"
                     class="myInput"
                     type="Text"
-                    placeholder="BAU-number (f.ex.: 14105)"
-                    valueStateText="The BAU-number has between 2 an 5 numbers"
+                    placeholder="{i18n>loginUsernamePlaceholder}"
+                    valueStateText="{i18n>loginValueStateText}"
                     value="{
 					path : '/number',
 					type : 'sap.ui.model.type.String',
@@ -34,7 +34,7 @@
             <Input
                     type="Password"
                     class="myInput"
-                    placeholder="password"/>
+                    placeholder="{i18n>loginPasswordPlaceholder}"/>
 
 
             <Button

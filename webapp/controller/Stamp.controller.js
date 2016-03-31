@@ -12,12 +12,9 @@ sap.ui.define([
     'sap/m/Dialog',
     'sap/m/Text',
 
-
 ], function (Controller, JSONModel, MessageToast, Button, Dialog, Text) {
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Stamp", {
-
-
 
         onInit: function () {
             // create model
@@ -47,35 +44,37 @@ sap.ui.define([
         },
 
         onClockIn: function () {
+            // read msg from i18n model
+            var oBundle = this.getView().getModel("i18n").getResourceBundle();
+            var cancleButton = oBundle.getText("cancelButton");
+            var warningTitle = oBundle.getText("warningTitle");
 
             if(stampedIn == false){
 
-                localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
+                //localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
                 this.generateMessageStrip("Success");
-              //  MessageToast.show("successfully saved");
 
             }else{
+
                 var dialog = new Dialog({
-                    title: 'Warning',
+                    title: warningTitle,
                     type: 'Message',
                     state: 'Warning',
                     content: new Text({
-                        text: 'You are already stamped in. Are you sure you want to stamp in again?'
+                        text: oBundle.getText("alreadyInWarning")
                     }),
                     beginButton: new Button({
-                        text: 'Stamp In',
+                        text: oBundle.getText("clockInButtonText"),
                         press: function () {
                             dialog.close();
-                            localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
-
+                            //todo: does not work: generateMessageStrip
                             this.generateMessageStrip("Success");
-
-                          //  MessageToast.show("successfully saved");
+                            //localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
 
                         }
                     }),
                     endButton: new Button({
-                        text: 'cancel',
+                        text: cancleButton,
                         press: function(){
                             dialog.close();
                         }
@@ -88,10 +87,12 @@ sap.ui.define([
                 dialog.open();
             }
             stampedIn= true;
-
-
         },
         generateMessageStrip : function(type){
+            // read msg from i18n model
+            var oBundle = this.getView().getModel("i18n").getResourceBundle();
+            var messageText = oBundle.getText("successMsg");
+
             var oMs = sap.ui.getCore().byId("msgStrip");
 
             if (oMs) {
@@ -101,8 +102,8 @@ sap.ui.define([
                 oVC = this.getView().byId("oVerticalContent"),
 
                 oMsgStrip = new sap.m.MessageStrip("msgStrip", {
-                    text: "Successfully saved",
-                    showCloseButton: true,
+                    text: messageText,
+                    showCloseButton: false,
                     showIcon: true,
                     type: aType
                 });
@@ -116,46 +117,47 @@ sap.ui.define([
         },
 
         onClockOut: function () {
+            // read msg from i18n model
+            var oBundle = this.getView().getModel("i18n").getResourceBundle();
+            var cancleButton = oBundle.getText("cancelButton");
+            var warningTitle = oBundle.getText("warningTitle");
 
             if(stampedIn == true){
 
-                localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
+                //localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
                 this.generateMessageStrip("Success");
-              //  MessageToast.show("successfully saved");
 
             }else{
                 var dialog = new Dialog({
-                    title: 'Warning',
+                    title: warningTitle,
                     type: 'Message',
                     state: 'Warning',
                     content: new Text({
-                        text: 'You are already stamped out. Are you sure you want to stamp out again?'
+                        text: oBundle.getText("alreadyOutWarning")
                     }),
                     beginButton: new Button({
-                        text: 'Stamp Out',
+                        text: oBundle.getText("clockOutButtonText"),
                         press: function () {
                             dialog.close();
-                            localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
+                            //localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
+                            //todo: does not work: generateMessageStrip
                             this.generateMessageStrip("Success");
-                         //   MessageToast.show("successfully saved");
                         }
                     }),
                     endButton: new Button({
-                        text: 'cancel',
+                        text: cancleButton,
                         press: function(){
                             dialog.close();
                         }
                     }),
                     afterClose: function() {
+
                         dialog.destroy();
                     }
                 });
-
                 dialog.open();
             }
             stampedIn= false;
         }
     });
 });
-
-

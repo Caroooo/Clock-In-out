@@ -48,15 +48,15 @@ $blum-orange: #FF671F;
 }
 
 /*.sapUiUfdShellBrand {*/
-    /*position: absolute;*/
-    /*top: 0px;*/
-    /*height: 4px;*/
-    /*left: 0px;*/
-    /*right: 0px;*/
-    /*border: medium none;*/
-    /*margin: 0px;*/
-    /*z-index: 7;*/
-    /*background-color:  #FF671F !important;*/
+/*position: absolute;*/
+/*top: 0px;*/
+/*height: 4px;*/
+/*left: 0px;*/
+/*right: 0px;*/
+/*border: medium none;*/
+/*margin: 0px;*/
+/*z-index: 7;*/
+/*background-color:  #FF671F !important;*/
 /*}*/
 
 #__xmlview2--myShell-brand.sapUiUfdShellBrand,
@@ -89,7 +89,18 @@ $blum-orange: #FF671F;
 }
 .sapUiUfdShellHeadBegin .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:after,
 .sapUiUfdShellHeadUsrItm:before, .sapUiUfdShellHeadEnd .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:before{
-   border: none !important;
+    border: none !important;
+}
+
+
+/* side menu overlay */
+.shellOverlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: 300;
 }
 
 /*menu bar*/
@@ -254,7 +265,7 @@ $blum-orange: #FF671F;
     font-size: large !important;
     font-weight: normal;
     color: #FF671F !important;
-  /*  background: #f7f7f7;*/
+    /*  background: #f7f7f7;*/
     background-color: transparent !important;
     border-bottom: none !important;
     margin-top: 1rem !important;
@@ -296,17 +307,13 @@ $blum-orange: #FF671F;
     background-color: whitesmoke !important;
 }
 
+.sapMDialog{
+    height: 5rem;
+}
+
 .sapMDialog>footer {
     height: 1.5rem !important;
     position: relative !important;
-}
-
-.sapMDialog>.sapMDialogTitle {
-    height: 3rem !important;
-    position: relative !important;
-    padding-top: 0 !important;
-    padding-bottom: 1rem !important;
-    margin-bottom: 1.5rem !important;
 }
 
 /*timepicker*/
@@ -355,8 +362,8 @@ $blum-orange: #FF671F;
 }
 
 /*.sapMPage>section {*/
-    /*position: relative !important;*/
-    /*/!*height: 25rem;*!/*/
+/*position: relative !important;*/
+/*/!*height: 25rem;*!/*/
 /*}*/
 .sapMTB {
     padding: 0;
@@ -378,5 +385,4 @@ $blum-orange: #FF671F;
     border: medium  !important;
     border-color: white !important;
 }
-
 
