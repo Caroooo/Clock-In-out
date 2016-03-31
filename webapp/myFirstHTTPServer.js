@@ -1,4 +1,4 @@
-//var dispatcher = require('httpdispatcher');
+var dispatcher = require('httpdispatcher');
 
 //Lets require/import the HTTP module
 var http = require('http');
@@ -6,12 +6,12 @@ var http = require('http');
 //Lets define a port we want to listen to
 //const PORT=8080;
 
-//We need a function which handles requests and send response
+//We need a function which handll);
+//        //Disptaches requests and send response
 //function handleRequest(request, response){
 //    try {
 //        //log the request on console
-//        console.log(request.url);
-//        //Disptach
+//        console.log(request.ur
 //        dispatcher.dispatch(request, response);
 //    } catch(err) {
 //        console.log(err);
@@ -72,27 +72,26 @@ var http = require('http');
 //        res.end('Got Post Data');
 //    });
 
+dispatcher.setStatic('C:/Users/Caroline/Documents/GitHub/Clock-In-out/webapp');
 var server = http.createServer(function(request, response){
-    console.log("got a request");
+    console.log("got a request" +request.url);
 
     response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write("<!DOCTYPE>"
+    response.write("<!DOCTYPE html>"
         + "<html>"
         + "<head>"
         + "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/>"
         + "<meta charset=\"UTF-8\"/>"
-        + "<link rel=\"stylesheet\" href=\"CSS/blum.css\" type=\"text/css\"/>"
+        + "<link type=\"text/css\" rel=\"stylesheet\" href=\"/CSS/blum.css\" />"
         + "<title>Blum App</title>"
         + "<script "
         + "id=\"sap-ui-bootstrap\" "
-        + "src=\"resources/sap-ui-core.js\" "
+        + "src=\"/resources/sap-ui-core.js\" "
         + "data-sap-ui-theme=\"sap_bluecrystal\" "
         + "data-sap-ui-libs=\"sap.m\" "
         + "data-sap-ui-compatVersion=\"edge\" "
         + "data-sap-ui-preload=\"async\" "
         + "data-sap-ui-resourceroots='{\"sap.ui.demo.wt\": \"./\"}' > "
-        + "</script>"
-        + "<script> "
         + "sap.ui.getCore().attachInit(function () {"
         + "new sap.m.Shell({"
         + "app:new sap.ui.core.ComponentContainer({"
