@@ -318,42 +318,50 @@ $blum-orange: #FF671F;
 
 /*timepicker*/
 
-.sapMInputBaseInner:not(.sapMInputBaseReadonlyInner):not(.sapMInputBaseStateInner):not(.sapMInputBaseDisabledInner):hover {
-    border-color: grey !important;
-}
+/*.sapMInputBaseInner:not(.sapMInputBaseReadonlyInner):not(.sapMInputBaseStateInner):not(.sapMInputBaseDisabledInner):hover {*/
+    /*border-color: grey !important;*/
+/*}*/
 
-.sapMTimePicker.sapMTPInputActive .sapUiIcon,
-.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem:active{
-    background-color: grey !important;
-}
-.sapMTimePicker.sapMTPInputActive .sapMInputBase,
-.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner{
-    border: 1px solid grey !important;
-}
+/*.sapMTimePicker.sapMTPInputActive .sapUiIcon,*/
+/*.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem:active{*/
+    /*background-color: grey !important;*/
+/*}*/
+/*.sapMTimePicker.sapMTPInputActive .sapMInputBase,*/
+/*.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner{*/
+    /*border: 1px solid grey !important;*/
+/*}*/
 
-.sapMTimePicker.sapMTPInputActive .sapMInputBase:active,
-.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner:active{
-    border: 1px solid grey !important;
-    background-color: grey !important;
-}
+/*.sapMTimePicker.sapMTPInputActive .sapMInputBase:active,*/
+/*.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner:active{*/
+    /*border: 1px solid grey !important;*/
+    /*background-color: grey !important;*/
+/*}*/
 
-.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner:hover {
-    border: 1px solid grey !important;
-    color: white !important;
-}
+/*.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner:hover {*/
+    /*border: 1px solid grey !important;*/
+    /*color: white !important;*/
+/*}*/
 
-.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem:hover {
-    background-color: grey !important;
-    color: white !important;
-}
+/*.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem:hover {*/
+    /*background-color: grey !important;*/
+    /*color: white !important;*/
+/*}*/
 
-.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem {
-    background-color: lightgrey !important;
-}
+/*.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem {*/
+    /*background-color: lightgrey !important;*/
+/*}*/
 
 /*calendar*/
-.sapUiCalHead>.sapUiCalHeadB, .sapUiCalCancel, .sap-desktop .sapUiCalHead>.sapUiCalHeadB:hover, .sap-desktop .sapUiCalHead>.sapUiCalHeadB:focus {
-    color: darkgrey !important;
+/*.sapUiCalHead>.sapUiCalHeadB, .sapUiCalCancel, .sap-desktop .sapUiCalHead>.sapUiCalHeadB:hover, .sap-desktop .sapUiCalHead>.sapUiCalHeadB:focus {*/
+    /*color: darkgrey !important;*/
+/*}*/
+
+.sapMTitle.currentDate{
+    color: darkgrey;
+}
+
+.sapMTitle.currentTime{
+    font-size: 3rem !important;
 }
 
 /*Pages - Menubar*/
