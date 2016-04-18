@@ -12,7 +12,7 @@ sap.ui.define([
     'sap/ui/model/json/JSONModel'
 ], function (jQuery, MessageBox, MessageToast, Controller, SimpleType, ValidateException, JSONModel) {
     "use strict";
-    return Controller.extend("sap.ui.demo.wt.controller.Login", {
+    return Controller.extend("sap.ui.demo.wt.controller.Login2", {
 
 
         onInit: function () {

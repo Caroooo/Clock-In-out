@@ -24,23 +24,23 @@ sap.ui.define([
             });
             this.getView().setModel(oModel);
 
-            this.byId("TP3").setDateValue(new Date());
+            //this.byId("TP3").setDateValue(new Date());
 
             this._iEvent = 0;
         },
 
         handleChange: function (oEvent) {
-            var oText = this.byId("T3");
-            var oTP = oEvent.oSource;
-            var sValue = oEvent.getParameter("value");
-            var bValid = oEvent.getParameter("valid");
-            this._iEvent++;
-
-            if (bValid) {
-                oTP.setValueState(sap.ui.core.ValueState.None);
-            } else {
-                oTP.setValueState(sap.ui.core.ValueState.Error);
-            }
+            //var oText = this.byId("T3");
+            //var oTP = oEvent.oSource;
+            //var sValue = oEvent.getParameter("value");
+            //var bValid = oEvent.getParameter("valid");
+            //this._iEvent++;
+            //
+            //if (bValid) {
+            //    oTP.setValueState(sap.ui.core.ValueState.None);
+            //} else {
+            //    oTP.setValueState(sap.ui.core.ValueState.Error);
+            //}
         },
 
         onClockIn: function () {

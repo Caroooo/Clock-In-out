@@ -17,20 +17,23 @@
                         height="60px"
                         alignItems="Center"
                         justifyContent="Center">
-                    <DatePicker id="myDP" value="{path: '/myDate', type:'sap.ui.model.type.Date' }"
-                                change="handleChange"
-                                class="sapUiSmallMarginBottom"/>
+                   <Title class="currentDate" text="{path: '/myDate', type:'sap.ui.model.type.Date' }"/>
+
+                    <!--<DatePicker id="myDP" value="{path: '/myDate', type:'sap.ui.model.type.Date' }"-->
+                                <!--change="handleChange"-->
+                                <!--class="sapUiSmallMarginBottom"/>-->
                 </FlexBox>
                 <FlexBox
                         height="60px"
                         alignItems="Center"
                         justifyContent="Center">
+                    <Title class="currentTime" text="{path: '/myDate', type:'sap.ui.model.type.Time' }"/>
 
-                    <TimePicker
-                            id="TP3"
-                            valueFormat="HH:mm"
-                            displayFormat="HH:mm"
-                            change="handleChange"/>
+                    <!--<TimePicker-->
+                            <!--id="TP3"-->
+                            <!--valueFormat="HH:mm"-->
+                            <!--displayFormat="HH:mm"-->
+                            <!--change="handleChange"/>-->
                 </FlexBox>
 
                 <FlexBox

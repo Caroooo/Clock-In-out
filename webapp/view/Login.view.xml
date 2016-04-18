@@ -22,19 +22,26 @@
                     placeholder="{i18n>loginUsernamePlaceholder}"
                     valueStateText="{i18n>loginValueStateText}"
                     value="{
-					path : '/number',
-					type : 'sap.ui.model.type.String',
-					constraints : {
-						minLength: 2,
-						maxLength: 5
-					}
-				}"/>
+						path : '/userid',
+						type : 'sap.ui.model.type.String',
+						constraints : {
+							minLength: 8,
+							maxLength: 8
+						}
+					}"/>
 
 
             <Input
                     type="Password"
                     class="myInput"
-                    placeholder="{i18n>loginPasswordPlaceholder}"/>
+                    placeholder="{i18n>loginPasswordPlaceholder}"
+                    value="{
+						path : '/password',
+						type : 'sap.ui.model.type.String',
+						constraints : {
+							minLength: 6
+						}
+					}"/>
 
 
             <Button
