@@ -8,32 +8,18 @@
             class="sapUiContentPadding"
             showNavButton="false"
             showHeader="false">
-        <!--<ScrollContainer-->
-                <!--horizontal="true"-->
-                <!--vertical="true"-->
-                <!--focusable="true">-->
+
+        <Button width="100%" text="Send to Blum" press="handleSendToWebService"></Button>
+
         <PullToRefresh
                 id="pullToRefresh"
                 refresh="handleRefresh" />
-         <List
-                    id="outboxList"
-                    class="sapUiResponsiveMargin"
-                    width="auto"
-                    items="{
-            path : 'out>/Outbox',
-            sorter : {
-                path : 'Date',
-                group : true,
-                descending: true
-            }
-        }">
-                <items>
-                    <ObjectListItem
-                            title="{out>Time} {out>ClockType}"
-                            number="{out>State}"/>
-                </items>
-            </List>
-    <!--</ScrollContainer>-->
-  </Page>
+        <!--<List id="outboxList"></List>-->
+        <List id="outboxList" items="{path: '/savedBookings', type:'sap.ui.model.type.String', sorter : {path : 'date'}}">
+            <ObjectListItem title="{type}" number="{date} {time}" />
+        </List>
+
+
+    </Page>
 
 </mvc:View>

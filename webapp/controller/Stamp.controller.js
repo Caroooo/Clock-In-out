@@ -17,16 +17,10 @@ sap.ui.define([
     return Controller.extend("sap.ui.demo.wt.controller.Stamp", {
 
         onInit: function () {
-            // create model
-            var oModel = new JSONModel();
-            oModel.setData({
-                myDate: new Date()
-            });
-            this.getView().setModel(oModel);
-
-            //this.byId("TP3").setDateValue(new Date());
+            //localStorage.clear();
 
             this._iEvent = 0;
+
         },
 
         handleChange: function (oEvent) {
@@ -42,6 +36,18 @@ sap.ui.define([
             //    oTP.setValueState(sap.ui.core.ValueState.Error);
             //}
         },
+        newBooking : function (type, baunumber) {
+
+            var currentDate = new Date();
+            var newBooking = {
+                type: type,
+                date: currentDate.toDateString(),
+                time: currentDate.toTimeString(),
+                person: baunumber
+            }
+            var rand = Math.random();
+            localStorage.setItem(type+rand, JSON.stringify(newBooking));
+        },
 
         onClockIn: function () {
             // read msg from i18n model
@@ -50,8 +56,7 @@ sap.ui.define([
             var warningTitle = oBundle.getText("warningTitle");
 
             if(stampedIn == false){
-
-                //localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
+                this.newBooking("in", "BAU14105");
                 this.generateMessageStrip("Success");
 
             }else{
@@ -66,6 +71,7 @@ sap.ui.define([
                     beginButton: new Button({
                         text: oBundle.getText("clockInButtonText"),
                         press: function () {
+                            this.newBooking("in", "BAU14105");
                             dialog.close();
                             //todo: does not work: generateMessageStrip
                             this.generateMessageStrip("Success");
@@ -124,7 +130,7 @@ sap.ui.define([
 
             if(stampedIn == true){
 
-                //localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
+                this.newBooking("out", "BAU14105");
                 this.generateMessageStrip("Success");
 
             }else{
@@ -137,9 +143,10 @@ sap.ui.define([
                     }),
                     beginButton: new Button({
                         text: oBundle.getText("clockOutButtonText"),
-                        press: function () {
+                        press: function ()
+                        {
+                            this.newBooking("out", "BAU14105");
                             dialog.close();
-                            //localStorage.setItem("stamps"+Date.now(), "Out"+Date.now());
                             //todo: does not work: generateMessageStrip
                             this.generateMessageStrip("Success");
                         }

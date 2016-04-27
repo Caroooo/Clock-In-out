@@ -16,27 +16,28 @@ sap.ui.define([
 
         UIComponent.prototype.init.apply(this, arguments);
 
-        // set current date to datepicker
+        // model for Date and Time
         var oData = {
             myDate: new Date()
+            //,savedBookings: null
         };
+
+        //var savedItems = { savedItems: new Array(localStorage.length)};
+        //for (var i = 0; i < localStorage.length; i++){
+        //    savedItems[i]= JSON.parse(localStorage.getItem(localStorage.key(i)));
+        //    console.log(savedItems[i]);
+        //}
+        //
+        //oData.savedBookings = savedItems;
+
         var oModel = new JSONModel(oData);
         this.setModel(oModel);
 
-        // // set i18n model on view
-        // var i18nModel = new ResourceModel({
-        // bundleName: "sap.ui.demo.wt.i18n.i18n"
-        // });
-        // this.setModel(i18nModel, "i18n");
 
-        // set invoice model - local
-        var oConfig = this.getMetadata().getConfig();
+        var configuration = new sap.ui.core.Configuration();
         var sNamespace = this.getMetadata().getManifestEntry("sap.app").id;
-        var oOutboxModel = new JSONModel(jQuery.sap.getModulePath(sNamespace, oConfig.outboxLocal));
-        this.setModel(oOutboxModel, "out");
 
-        var configuration = new sap.ui.core.Configuration()
-
+        //model for usercontext --> login
         var userContext = new JSONModel({
             "callAppl": sNamespace,
             "language": configuration.getLocale().getLanguage(),
