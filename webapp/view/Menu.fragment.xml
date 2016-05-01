@@ -7,7 +7,7 @@
             pageSize="10rem">
 
         <u:MenuItem
-                text="14105"
+                text="{credential>username}"
                 icon="sap-icon://person-placeholder"
                 />
         <u:MenuItem

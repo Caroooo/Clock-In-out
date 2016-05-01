@@ -1,12 +1,11 @@
 /**
  * Created by Caroline on 12.04.2016.
  */
-
 sap.ui.define([
     "jquery.sap.global",
     "./WsConstants",
     "./WebService",
-    "../model/SOAPModel",
+    "../model/soap/SOAPModel",
     "sap/ui/model/json/JSONModel" ], function(jQuery, WsConstants, WebService, SOAPModel, JSONModel) {
     "use strict";
 
@@ -14,7 +13,7 @@ sap.ui.define([
 
     var requestTemplate;
 
-    var WsLogon = WebService.extend("sap.ui.demo.wt.ws.WSLogon", {
+    var WsLogon = WebService.extend("sap.ui.demo.wt.ws.WsLogon", {
 
         constructor: function() {
             var that = this;
@@ -30,20 +29,21 @@ sap.ui.define([
         var that = this;
         var deferred = jQuery.Deferred();
 
-        // requestTemplate.find("consumer").text(loginData.consumer);
-        // requestTemplate.find("language").text(loginData.language);
-        // requestTemplate.find("locale").text(loginData.locale);
-        // requestTemplate.find("username").text(loginData.username);
-        // requestTemplate.find("password").text(loginData.password);
-
+        // this is a more compact way of doing what is commented out above. The idea is
+        // as more data is included in the loginData, its automatically applied to the
+        // xml (if a match is found of course)
         var userContextData = userContext.getData();
         var keys = Object.keys(userContextData);
         keys.forEach(function(key) {
             that.requestTemplate.find(key).text(userContextData[key]);
         })
 
-        this.soapModel.loadData(this.requestTemplate[0]).done(function(data) {
+        this.soapModel.loadData(this.requestTemplate).done(function(data) {
 
+            // What is returned from the server, comes in the data object passed in.
+            // So we just build our javascript object based on what came back.
+            // Here I build an exact Object from the XML, however most data is
+            // not needed.
             var respHeader = data.find("respHeader");
             var respHeader = {
                 language: that.getXmlValue(respHeader, "language"),
@@ -51,7 +51,6 @@ sap.ui.define([
                 sequenceId: that.getXmlValue(respHeader, "sequenceId"),
             }
 
-            //saving the login Result in a simple JS object (it was a dom object before)
             var loginResults = {
                 country: that.getXmlValue(data, "country"),
                 email: that.getXmlValue(data, "email"),

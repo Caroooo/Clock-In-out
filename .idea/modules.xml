@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ClockIt.iml" filepath="$PROJECT_DIR$/ClockIt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Clock-In-out.iml" filepath="$PROJECT_DIR$/Clock-In-out.iml" />
     </modules>
   </component>
 </project>

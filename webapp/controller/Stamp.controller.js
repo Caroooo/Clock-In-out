@@ -17,7 +17,6 @@ sap.ui.define([
     return Controller.extend("sap.ui.demo.wt.controller.Stamp", {
 
         onInit: function () {
-            //localStorage.clear();
 
             this._iEvent = 0;
 
@@ -42,11 +41,13 @@ sap.ui.define([
             var newBooking = {
                 type: type,
                 date: currentDate.toDateString(),
-                time: currentDate.toTimeString(),
+                time: currentDate.getHours().toString() + ":" + currentDate.getMinutes().toString() +":"+ currentDate.getSeconds().toString(),
                 person: baunumber
             }
-            var rand = Math.random();
-            localStorage.setItem(type+rand, JSON.stringify(newBooking));
+            var model = this.getOwnerComponent().getModel("outbox");
+            model.getData().push(newBooking);
+            this.getOwnerComponent().saveOutbox();
+            model.updateBindings();
         },
 
         onClockIn: function () {
@@ -54,9 +55,10 @@ sap.ui.define([
             var oBundle = this.getView().getModel("i18n").getResourceBundle();
             var cancleButton = oBundle.getText("cancelButton");
             var warningTitle = oBundle.getText("warningTitle");
+            var inType = oBundle.getText("stampTypeIn");
 
             if(stampedIn == false){
-                this.newBooking("in", "BAU14105");
+                this.newBooking(inType, "BAU14105");
                 this.generateMessageStrip("Success");
 
             }else{
@@ -71,7 +73,7 @@ sap.ui.define([
                     beginButton: new Button({
                         text: oBundle.getText("clockInButtonText"),
                         press: function () {
-                            this.newBooking("in", "BAU14105");
+                            this.newBooking(inType, "BAU14105");
                             dialog.close();
                             //todo: does not work: generateMessageStrip
                             this.generateMessageStrip("Success");
@@ -127,10 +129,11 @@ sap.ui.define([
             var oBundle = this.getView().getModel("i18n").getResourceBundle();
             var cancleButton = oBundle.getText("cancelButton");
             var warningTitle = oBundle.getText("warningTitle");
+            var outType = oBundle.getText("stampTypeOut");
 
             if(stampedIn == true){
 
-                this.newBooking("out", "BAU14105");
+                this.newBooking(outType, "BAU14105");
                 this.generateMessageStrip("Success");
 
             }else{
@@ -145,7 +148,7 @@ sap.ui.define([
                         text: oBundle.getText("clockOutButtonText"),
                         press: function ()
                         {
-                            this.newBooking("out", "BAU14105");
+                            this.newBooking(outType, "BAU14105");
                             dialog.close();
                             //todo: does not work: generateMessageStrip
                             this.generateMessageStrip("Success");

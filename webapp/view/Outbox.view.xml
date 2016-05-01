@@ -13,11 +13,28 @@
 
         <PullToRefresh
                 id="pullToRefresh"
-                refresh="handleRefresh" />
+                refresh="handleRefresh"/>
         <!--<List id="outboxList"></List>-->
-        <List id="outboxList" items="{path: '/savedBookings', type:'sap.ui.model.type.String', sorter : {path : 'date'}}">
-            <ObjectListItem title="{type}" number="{date} {time}" />
-        </List>
+        <!--<List id="outboxList" items="{path: 'outbox>/', type:'sap.ui.model.type.String'}">-->
+        <!--<ObjectListItem title="{outbox>type}, , ,{outbox>date}, {outbox>time}" number= "sent"/>-->
+        <!--</List>-->
+
+        <Table items="{path: 'outbox>/',type:'sap.ui.model.type.String', sorter: {path : 'outbox>date', group: true}}">
+            <columns>
+                <Column width="40%"></Column>
+                <Column width="40%"> </Column>
+                <Column hAlign="Right"></Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{outbox>time}"/>
+                        <Text text="{outbox>type}"/>
+                        <Text text="sent"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
 
 
     </Page>

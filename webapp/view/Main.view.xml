@@ -18,9 +18,9 @@
 
         <u:paneContent>
             <VBox class="sapUiSmallMargin">
-                <HBox class="sapUiSmallMargin">
+                <HBox class="sapUiSmallMargin" binding="{path: 'credential>/'}">
                     <core:Icon src="sap-icon://person-placeholder" class="iconSize1"/>
-                    <Title text="14105"/>
+                    <Title text="{credential>username}"/>
                 </HBox>
 
                 <Button icon="sap-icon://log" press="onLogout" class="logButton"/>

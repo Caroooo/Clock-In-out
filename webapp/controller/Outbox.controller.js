@@ -4,45 +4,18 @@
 
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
-], function ( Controller, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/demo/wt/ws/WsCreateTimeEvent",
+    "sap/ui/demo/wt/ws/WsLogon",
+    'sap/m/MessageBox'
+], function (Controller, JSONModel, WsCreateTimeEvent, WsLogon, MessageBox) {
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Outbox", {
 
         onInit : function () {
-
-            var oData = {
-                savedBookings: null
-            };
-
-            var oSavedItems = { savedItems: new Array(localStorage.length)};
-            for (var i = 0; i < localStorage.length; i++){
-                oSavedItems[i]= JSON.parse(localStorage.getItem(localStorage.key(i)));
-                console.log(oSavedItems[i]);
-            }
-
-            oData.savedBookings = oSavedItems;
-
-            var oModel = new JSONModel(oData);
-            this.getView().setModel(oModel);
-
-            //this.loadData();
-            //var list = this.getView().byId("outboxList");
-
-            //list.bindObject({
-            //    path : "/savedBookings",
-            //    //sorter : new sap.ui.model.Sorter("date"),
-            //    template : new sap.m.ObjectListItem({
-            //        title: "{type}",
-            //        description: "{time}"
-            //    })
-            //});
-
-            //var binding = new sap.ui.model.Binding(oModel, "/savedBookings", oModel.getContext("/"));
-            //binding.attachChange(function(){
-            //    this.loadData();
-            //});
-
+            this.wsLogon = new WsLogon(); // loading this, so I know it will be fully initialized and ready to use if I need it (it needs time to load the
+            // request.xml)
+            this.wsCreateTimeEvent = new WsCreateTimeEvent();
         },
 
         handleRefresh : function (evt) {
@@ -54,19 +27,43 @@ sap.ui.define([
         },
 
         loadData : function(){
-
-            var savedItems = { savedItems: new Array(localStorage.length)};
-            for (var i = 0; i < localStorage.length; i++){
-                savedItems[i]= JSON.parse(localStorage.getItem(localStorage.key(i)));
-                console.log(savedItems[i]);
+            //WHAT TODO HERE?
+        },
+        handleSendToWebService: function(oEvent) {
+            var userContext = this.getOwnerComponent().getModel("userContext");
+            var outbox = this.getView().getModel("out");
+            var that = this;
+            /*
+             * Notice the spelling mistake!!! tickedId (when it should have been ticketId). Used the wrongly spelled word :-(
+             */
+            if (!userContext.getProperty("/tickedId")) {
+                this.wsLogon.send(userContext).done(function(newUserContext) {
+                    var component = that.getOwnerComponent();
+                    component.setModel(newUserContext, "userContext");
+                    if (component.isLoggedIn() === true) {
+                        userContext = this.getOwnerComponent().getModel("userContext");
+                        this.sendOutbox(userContext, outbox);
+                    } else {
+                        MessageBox.error("Login failed. Cannot send Outbox to server. Logout and back in again before retrying.");
+                    }
+                });
+            } else {
+                this.sendOutbox(userContext, outbox);
             }
 
-            var oData = this.getView().getModel();
-            //oData.savedBookings = savedItems;
+        },
+        sendOutbox: function(userContext, outbox) {
 
-            oData.setProperty("/savedBookings", savedItems);
+            this.wsCreateTimeEvent.send(userContext, outbox).then(function(result) {
+                if (result.text === "successfully processed") {
+                    MessageBox.success("The outbox with " + outbox.length + " records, was successfully sent to the server");
+                    outbox.setData({});
+                    outbox.updateBindings();
+                } else {
+                    MessageBox.error("An error occured sending the Outbox. Please try again later.\n\n" + result.text);
+                }
+            });
 
-            this.getView().setModel(oData);
         }
 
     });

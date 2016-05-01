@@ -16,6 +16,7 @@ sap.ui.define([
 
 
         onInit: function () {
+            localStorage.clear();
             this.getView().setModel(new JSONModel({
                 number: ""
             }));
@@ -36,41 +37,11 @@ sap.ui.define([
         },
 
         onLogin: function (evt) {
-
+            localStorage.clear();
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("main");
 
-            //// collect input controls
-            //var view = this.getView();
-            //var inputs = [
-            //    view.byId("numberInput"),
-            //    view.byId("passwordInput")
-            //];
-            //
-            //// check that inputs are not empty
-            //// this does not happen during data binding as this is only triggered by changes
-            //jQuery.each(inputs, function (i, input) {
-            //    if (!input.getValue()) {
-            //        input.setValueState("Error");
-            //    }
-            //});
-            //
-            //// check states of inputs
-            //var canContinue = true;
-            //jQuery.each(inputs, function (i, input) {
-            //    if ("Error" === input.getValueState()) {
-            //        canContinue = false;
-            //        return false;
-            //    }
-            //});
-            //
-            //// output result
-            //if (canContinue) {
-            //    MessageToast.show("The input is correct. You could now continue to the next screen.");
-            //} else {
-            //    jQuery.sap.require("sap.m.MessageBox");
-            //    MessageBox.alert("Complete your input first.");
-            //}
+            this.saveCredentials();
             this.sendRequest(null, null);
 
         },
@@ -153,6 +124,16 @@ sap.ui.define([
                 document.getElementById("demo").innerHTML = xhr.responseText;
                 document.title = xhr.responseText;
             }
+        }, saveCredentials : function(){
+            var model = this.getView().getModel();
+            console.log(model);
+            var userid = model.getProperty("/userid");
+            console.log("USERID: " + userid);
+            var password = b64_md5(model.getProperty("/password"));
+
+            var model = this.getOwnerComponent().getModel("credential");
+            this.getOwnerComponent().saveCredentials(userid, password);
+            model.updateBindings();
         }
 
     });

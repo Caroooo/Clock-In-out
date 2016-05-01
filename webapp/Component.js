@@ -4,7 +4,7 @@
 
 sap.ui.define([
     "sap/ui/core/UIComponent",
-    "sap/ui/model/json/JSONModel" ], function(UIComponent, JSONModel) {
+    "sap/ui/model/json/JSONModel"], function (UIComponent, JSONModel) {
     "use strict";
     var Component = UIComponent.extend("sap.ui.demo.wt.Component", {
         metadata: {
@@ -12,26 +12,45 @@ sap.ui.define([
         }
     });
 
-    Component.prototype.init = function() {
+    Component.prototype.init = function () {
 
         UIComponent.prototype.init.apply(this, arguments);
 
         // model for Date and Time
         var oData = {
             myDate: new Date()
-            //,savedBookings: null
         };
-
-        //var savedItems = { savedItems: new Array(localStorage.length)};
-        //for (var i = 0; i < localStorage.length; i++){
-        //    savedItems[i]= JSON.parse(localStorage.getItem(localStorage.key(i)));
-        //    console.log(savedItems[i]);
-        //}
-        //
-        //oData.savedBookings = savedItems;
 
         var oModel = new JSONModel(oData);
         this.setModel(oModel);
+
+        function updateTime() {
+            oModel.updateCurrentTime;
+            oModel.setData({"myDate": new Date()});
+            oModel.updateBindings();
+        }
+
+        setInterval(updateTime, 1000);
+
+        var outboxModel = new JSONModel();
+        this.setModel(outboxModel, "outbox");
+        var outboxStr = localStorage.getItem("outbox");
+        if (outboxStr) {
+            outboxModel.setData(JSON.parse(outboxStr));
+
+        } else {
+            outboxModel.setData([]);
+        }
+
+        var credentialModel = new JSONModel();
+        this.setModel(credentialModel, "credential");
+        var credentialStr = localStorage.getItem("credential");
+        if (credentialStr) {
+            credentialModel.setData(JSON.parse(credentialStr));
+
+        } else {
+            credentialModel.setData([]);
+        }
 
 
         var configuration = new sap.ui.core.Configuration();
@@ -48,13 +67,26 @@ sap.ui.define([
         // create the views based on the url/hash
         this.getRouter().initialize();
 
-    }
+    };
+
+    Component.prototype.saveOutbox = function () {
+        var outboxData = this.getModel("outbox").getData();
+        localStorage.setItem("outbox", JSON.stringify(outboxData));
+    };
+    Component.prototype.saveCredentials = function (username, password) {
+        var credentialData = {
+            username: username,
+            password: password
+        };
+        //var credentialData = this.getModel("credential").getData();
+        localStorage.setItem("credential", JSON.stringify(credentialData));
+    };
 
     /*
      * A Convinience method, that simply looks at the current userContext for login status returns boolean true if user is logged in.
      */
-    Component.prototype.isLoggedIn = function() {
+    Component.prototype.isLoggedIn = function () {
         return this.getModel("userContext").getProperty("/logonResult") === "OK";
-    }
+    };
 
 });

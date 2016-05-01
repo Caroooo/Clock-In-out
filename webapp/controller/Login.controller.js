@@ -2,11 +2,11 @@ sap.ui.define([
     'jquery.sap.global',
     'sap/m/MessageBox',
     'sap/m/MessageToast',
-    'sap/ui/demo/wt/ws/WSLogon',
+    'sap/ui/demo/wt/ws/WsLogon',
     'sap/ui/core/mvc/Controller',
     'sap/ui/model/SimpleType',
     'sap/ui/model/ValidateException',
-    'sap/ui/model/json/JSONModel' ], function(jQuery, MessageBox, MessageToast, WSLogon, Controller, SimpleType, ValidateException, JSONModel) {
+    'sap/ui/model/json/JSONModel' ], function(jQuery, MessageBox, MessageToast, WsLogon, Controller, SimpleType, ValidateException, JSONModel) {
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Login", {
 
@@ -15,7 +15,7 @@ sap.ui.define([
 
             this.getView().setModel(new JSONModel());
 
-            this.loginWebService = new WSLogon();
+            this.loginWebService = new WsLogon();
 
             // attach handlers for validation errors
             sap.ui.getCore().attachValidationError(function(evt) {
