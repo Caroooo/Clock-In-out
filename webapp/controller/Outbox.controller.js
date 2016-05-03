@@ -31,7 +31,7 @@ sap.ui.define([
         },
         handleSendToWebService: function(oEvent) {
             var userContext = this.getOwnerComponent().getModel("userContext");
-            var outbox = this.getView().getModel("out");
+            var outbox = this.getView().getModel("outbox");
             var that = this;
             /*
              * Notice the spelling mistake!!! tickedId (when it should have been ticketId). Used the wrongly spelled word :-(
@@ -52,6 +52,13 @@ sap.ui.define([
             }
 
         },
+
+
+        formatClockType: function(value){
+            return value === "P10" ? "In" : "Out";
+        },
+
+
         sendOutbox: function(userContext, outbox) {
 
             this.wsCreateTimeEvent.send(userContext, outbox).then(function(result) {

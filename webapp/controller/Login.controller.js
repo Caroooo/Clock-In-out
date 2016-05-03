@@ -15,6 +15,7 @@ sap.ui.define([
 
             this.getView().setModel(new JSONModel());
 
+
             this.loginWebService = new WsLogon();
 
             // attach handlers for validation errors
@@ -51,6 +52,7 @@ sap.ui.define([
                 component.setModel(newUserContext, "userContext");
                 if (component.isLoggedIn() === true) {
                     component.getRouter().navTo("main");
+                    that.getOwnerComponent().saveCredentials(userid, password);
                 } else {
                     MessageBox.error("Logon Failed. Please check username/password and try again.");
                 }

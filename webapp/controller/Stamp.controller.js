@@ -35,19 +35,34 @@ sap.ui.define([
             //    oTP.setValueState(sap.ui.core.ValueState.Error);
             //}
         },
-        newBooking : function (type, baunumber) {
+        newBooking : function (type) {
+
+            var dateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "yyyyMMdd"});
+            var timeFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "HHMMSS"});
 
             var currentDate = new Date();
             var newBooking = {
-                type: type,
-                date: currentDate.toDateString(),
-                time: currentDate.getHours().toString() + ":" + currentDate.getMinutes().toString() +":"+ currentDate.getSeconds().toString(),
-                person: baunumber
+                Date: dateFormat.format(currentDate),
+                Time: timeFormat.format(currentDate),
+                ClockType: type
             }
             var model = this.getOwnerComponent().getModel("outbox");
             model.getData().push(newBooking);
-            this.getOwnerComponent().saveOutbox();
-            model.updateBindings();
+            this.getOwnerComponent().sendOutbox()
+                .done(function(result){
+                    if(result.outcome === "sentToServer") {
+                        that.generateMessageStrip("Success", result.message);
+                    }else if(result.outcome === "savedLocally"){
+                        that.generateMessageStrip("Warning", result.message);
+                    }
+                })
+                .fail(function(result){
+                    that.generateMessageStrip("ERROR", result.message);
+
+                }).always(function(){
+                    model.updateBindings();
+                });
+
         },
 
         onClockIn: function () {
@@ -56,10 +71,9 @@ sap.ui.define([
             var cancleButton = oBundle.getText("cancelButton");
             var warningTitle = oBundle.getText("warningTitle");
             var inType = oBundle.getText("stampTypeIn");
-
+            var that = this;
             if(stampedIn == false){
-                this.newBooking(inType, "BAU14105");
-                this.generateMessageStrip("Success");
+                this.newBooking("P10");
 
             }else{
 
@@ -73,11 +87,7 @@ sap.ui.define([
                     beginButton: new Button({
                         text: oBundle.getText("clockInButtonText"),
                         press: function () {
-                            this.newBooking(inType, "BAU14105");
-                            dialog.close();
-                            //todo: does not work: generateMessageStrip
-                            this.generateMessageStrip("Success");
-                            //localStorage.setItem("stamps"+Date.now(), "In"+Date.now());
+                            this.newBooking("P10");
 
                         }
                     }),
@@ -96,10 +106,10 @@ sap.ui.define([
             }
             stampedIn= true;
         },
-        generateMessageStrip : function(type){
+        generateMessageStrip : function(type, text){
             // read msg from i18n model
             var oBundle = this.getView().getModel("i18n").getResourceBundle();
-            var messageText = oBundle.getText("successMsg");
+            var messageText = text;
 
             var oMs = sap.ui.getCore().byId("msgStrip");
 
@@ -133,8 +143,8 @@ sap.ui.define([
 
             if(stampedIn == true){
 
-                this.newBooking(outType, "BAU14105");
-                this.generateMessageStrip("Success");
+                this.newBooking("P20");
+
 
             }else{
                 var dialog = new Dialog({
@@ -148,10 +158,8 @@ sap.ui.define([
                         text: oBundle.getText("clockOutButtonText"),
                         press: function ()
                         {
-                            this.newBooking(outType, "BAU14105");
-                            dialog.close();
-                            //todo: does not work: generateMessageStrip
-                            this.generateMessageStrip("Success");
+                            this.newBooking("P20");
+
                         }
                     }),
                     endButton: new Button({

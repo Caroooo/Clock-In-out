@@ -28,9 +28,9 @@
             <items>
                 <ColumnListItem>
                     <cells>
+                        <Text text="{outbox>date}"/>
                         <Text text="{outbox>time}"/>
-                        <Text text="{outbox>type}"/>
-                        <Text text="sent"/>
+                        <Text text="{value: outbox>type, formatter: '.formatClockType'}"/>
                     </cells>
                 </ColumnListItem>
             </items>

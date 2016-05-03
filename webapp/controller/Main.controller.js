@@ -12,6 +12,10 @@ sap.ui.define([
             //var username = JSON.parse(localStorage.getItem("credential")).username;
             //console.log("CREDENTIALS: " +username);
 
+
+            //if connected and outbox not empty,
+                    //send Outbox
+
         },
 
         handlePressConfiguration: function(oEvent) {
