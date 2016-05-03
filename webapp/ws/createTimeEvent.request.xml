@@ -1,0 +1,34 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.ws.pab.blum.com" xmlns:xsd="http://ws.utils.framework.blum.com/xsd" xmlns:xsd1="http://types.ws.pab.blum.com/xsd">
+	<soap:Header>
+		<wsse:Security soap:mustUnderstand="true" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+			<wsse:UsernameToken wsu:Id="UsernameToken">
+				<wsse:Username></wsse:Username>
+				<wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText"></wsse:Password>
+				<wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary"></wsse:Nonce>
+				<wsu:Created></wsu:Created>
+			</wsse:UsernameToken>
+		</wsse:Security>
+	</soap:Header>
+	
+   <soap:Body>
+      <ser:createTimeEvent>
+         <!--Optional:-->
+         <ser:reqHeader>
+            <xsd:callAppl>PAB038</xsd:callAppl>
+            <xsd:consumer>ClockInOutHybridApp</xsd:consumer>
+            <xsd:username></xsd:username>
+         </ser:reqHeader>
+         <ser:reqInput>
+            <xsd1:userName></xsd1:userName>
+            <xsd1:ticketId></xsd1:ticketId>
+            <!--1 or more repetitions:-->
+            <xsd1:personnelTimeEvents>
+               <xsd1:timeEventType></xsd1:timeEventType>
+               <xsd1:absenceReason></xsd1:absenceReason>
+               <xsd1:logDate></xsd1:logDate>
+               <xsd1:logTime></xsd1:logTime>
+            </xsd1:personnelTimeEvents>
+         </ser:reqInput>
+      </ser:createTimeEvent>
+   </soap:Body>
+</soap:Envelope>
