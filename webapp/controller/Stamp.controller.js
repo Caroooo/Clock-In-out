@@ -3,7 +3,6 @@
  */
 
 var stampedIn = false;
-
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
@@ -21,24 +20,11 @@ sap.ui.define([
             this._iEvent = 0;
 
         },
-
-        handleChange: function (oEvent) {
-            //var oText = this.byId("T3");
-            //var oTP = oEvent.oSource;
-            //var sValue = oEvent.getParameter("value");
-            //var bValid = oEvent.getParameter("valid");
-            //this._iEvent++;
-            //
-            //if (bValid) {
-            //    oTP.setValueState(sap.ui.core.ValueState.None);
-            //} else {
-            //    oTP.setValueState(sap.ui.core.ValueState.Error);
-            //}
-        },
         newBooking : function (type) {
 
             var dateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "yyyyMMdd"});
-            var timeFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "HHMMSS"});
+            var timeFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "HHmmSS"});
+            var that = this;
 
             var currentDate = new Date();
             var newBooking = {
@@ -46,6 +32,7 @@ sap.ui.define([
                 Time: timeFormat.format(currentDate),
                 ClockType: type
             }
+
             var model = this.getOwnerComponent().getModel("outbox");
             model.getData().push(newBooking);
             this.getOwnerComponent().sendOutbox()
@@ -54,10 +41,12 @@ sap.ui.define([
                         that.generateMessageStrip("Success", result.message);
                     }else if(result.outcome === "savedLocally"){
                         that.generateMessageStrip("Warning", result.message);
+                        that.getOwnerComponent().saveOutbox();
                     }
                 })
                 .fail(function(result){
-                    that.generateMessageStrip("ERROR", result.message);
+                    that.generateMessageStrip("Error", result.message);
+
 
                 }).always(function(){
                     model.updateBindings();
@@ -72,9 +61,8 @@ sap.ui.define([
             var warningTitle = oBundle.getText("warningTitle");
             var inType = oBundle.getText("stampTypeIn");
             var that = this;
-            if(stampedIn == false){
+            if(stampedIn === false){
                 this.newBooking("P10");
-
             }else{
 
                 var dialog = new Dialog({
@@ -87,8 +75,8 @@ sap.ui.define([
                     beginButton: new Button({
                         text: oBundle.getText("clockInButtonText"),
                         press: function () {
-                            this.newBooking("P10");
-
+                            that.newBooking("P10");
+                            dialog.close();
                         }
                     }),
                     endButton: new Button({
@@ -140,8 +128,9 @@ sap.ui.define([
             var cancleButton = oBundle.getText("cancelButton");
             var warningTitle = oBundle.getText("warningTitle");
             var outType = oBundle.getText("stampTypeOut");
+            var that = this;
 
-            if(stampedIn == true){
+            if(stampedIn === true){
 
                 this.newBooking("P20");
 
@@ -158,7 +147,8 @@ sap.ui.define([
                         text: oBundle.getText("clockOutButtonText"),
                         press: function ()
                         {
-                            this.newBooking("P20");
+                            that.newBooking("P20");
+                            dialog.close();
 
                         }
                     }),

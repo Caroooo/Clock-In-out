@@ -13,11 +13,12 @@
             <VBox class="sapUiSmallMargin">
 
 
+
                 <FlexBox
                         height="60px"
                         alignItems="Center"
                         justifyContent="Center">
-                   <Title class="currentDate" text="{path: '/myDate', type:'sap.ui.model.type.Date' }"/>
+                   <Title class="currentDate" text="{path: '/myDate', type:'sap.ui.model.type.Date', formatOptions:{style: 'full'} }"/>
 
                     <!--<DatePicker id="myDP" value="{path: '/myDate', type:'sap.ui.model.type.Date' }"-->
                                 <!--change="handleChange"-->
@@ -38,7 +39,7 @@
 
                 <FlexBox
                         height="100px"
-                        alignItems="Center"
+                        alignItems="End"
                         justifyContent="Center">
                     <items>
                         <Button

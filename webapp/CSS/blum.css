@@ -84,6 +84,9 @@ $blum-orange: #FF671F;
 .iconSize1{
     font-size: 2rem;
 }
+.iconSize2{
+    font-size: 0.2rem;
+}
 .sapMTitle {
     text-shadow: none !important;
 }
@@ -114,7 +117,7 @@ $blum-orange: #FF671F;
 }
 
 .sapMITBItem{
-    width: 47% !important;
+    width: 32% !important;
 }
 
 
@@ -139,10 +142,17 @@ $blum-orange: #FF671F;
 .sapMITBTextOnly .sapMITBFilter:first-child {
     margin-left: 20px;
 }
+/*.sapMITBFilterDefault.sapMTBSelected>.sapMITBFilterIcon{*/
+    /*background: white !important;*/
+/*}*/
+.sapMITBSelected .sapMITBFilterDefault{
+    background: white !important;
+}
 
-.sapMITBTextOnly .sapMITBFilterDefault.sapMITBSelected>.sapMITBText, .sapMITBFilterDefault {
+ .sapMITBFilterDefault.sapMITBSelected>.sapMITBText, .sapMITBFilterDefault {
     color: white !important;
 }
+
 
 .sapMITBTextOnly .sapMITBFilterDefault>.sapMITBText {
     color: #ffc7ad !important;
@@ -150,6 +160,20 @@ $blum-orange: #FF671F;
 }
 .sapMITBSelected>.sapMITBContentArrow {
     border-bottom-color: white !important;
+}
+
+.sapMITBFilterIcon{
+    border: none !important;
+    background: #ffc7ad !important;
+}
+.sapMITBFilter .sapMITBText{
+    color: #ffc7ad !important;
+    text-shadow: none !important;
+    width: 100% !important;
+}
+
+.sapMITBTab{
+    width: 100% !important;
 }
 
 .sapMITBContent {
@@ -196,7 +220,8 @@ $blum-orange: #FF671F;
     text-align: center;
     text-decoration: none !important;
     display: inline-block !important;
-    font-size: large;
+    /*font-size: large;*/
+    font-size: x-large;
     border-radius: 4px;
     border: none !important;
     outline: none !important;
@@ -210,7 +235,7 @@ $blum-orange: #FF671F;
     color: white !important;
     text-align: center;
     text-decoration: none;
-    font-size: 1rem !important;
+    font-size: 1.3rem !important;
     border-radius: 8px;
     border: none !important;
     text-shadow: none !important;

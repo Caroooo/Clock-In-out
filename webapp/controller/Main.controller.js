@@ -9,13 +9,21 @@ sap.ui.define([
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Main", {
         onInit: function () {
-            //var username = JSON.parse(localStorage.getItem("credential")).username;
-            //console.log("CREDENTIALS: " +username);
-
 
             //if connected and outbox not empty,
                     //send Outbox
 
+        },
+        change : function(oControlEvent){
+            var model = this.getOwnerComponent().getModel("connection");
+
+            if(oControlEvent.getParameters().state === true){
+                console.log("switch changed: TRUE");
+                model.setData(true);
+            }else{
+                console.log("switch changed: FALSE");
+                model.setData(false);
+            }
         },
 
         handlePressConfiguration: function(oEvent) {

@@ -1,5 +1,5 @@
 <mvc:View
-        controllerName="sap.ui.demo.wt.controller.Outbox"
+        controllerName="sap.ui.demo.wt.controller.History"
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m"
         height="100%"
@@ -14,7 +14,7 @@
                 id="pullToRefresh"
                 refresh="handleRefresh"/>
 
-        <Table items="{path: 'outbox>/',type:'sap.ui.model.type.String', sorter: {path : 'outbox>Date', formatter: '.formatDate', group: true}}">
+        <Table items="{path: 'history>/', sorter: {path : 'history>Date', formatter: '.formatDate', group: true}}">
             <columns>
                 <Column width="40%"></Column>
                 <Column width="40%"> </Column>
@@ -23,9 +23,9 @@
             <items>
                 <ColumnListItem>
                     <cells>
-                        <Text text="{path: 'outbox>Date', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'dd.MM.yyyy', source:{pattern:'yyyyMMdd'}}}"/>
-                        <Text text="{path: 'outbox>Time', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'HH:mm', source:{pattern:'HHmmSS'}}}"/>
-                        <Text text="{path: 'outbox>ClockType', formatter: '.formatClockType'}"/>
+                        <Text text="{path: 'history>Date', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'dd.MM.yyyy', source:{pattern:'yyyyMMdd'}}}"/>
+                        <Text text="{path: 'history>Time', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'HH:mm', source:{pattern:'HHmmSS'}}}"/>
+                        <Text text="{path: 'history>ClockType', formatter: '.formatClockType'}"/>
                     </cells>
                 </ColumnListItem>
             </items>

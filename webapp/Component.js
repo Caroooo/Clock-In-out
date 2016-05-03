@@ -23,6 +23,7 @@ sap.ui.define([
         this.wsCreateTimeEvent = new WsCreateTimeEvent();
 
         // model for Date and Time
+
         var oData = {
             myDate: new Date()
         };
@@ -88,12 +89,32 @@ sap.ui.define([
             this.getRouter().navTo("login");
         }
 
+        //hisotry model
+        var historyModel = new JSONModel();
+        this.setModel(historyModel, "history");
+        var historyStr = localStorage.getItem("history");
+        if (historyStr) {
+            historyModel.setData(JSON.parse(historyStr));
+        } else {
+            historyModel.setData([]);
+        }
+
+        //connection model for testing
+        var connectionModel = new JSONModel();
+        this.setModel(connectionModel, "connection");
+        connectionModel.setData(true);
+
 
     };
 
     Component.prototype.saveOutbox = function () {
         var outboxData = this.getModel("outbox").getData();
         localStorage.setItem("outbox", JSON.stringify(outboxData));
+    };
+
+    Component.prototype.saveHistory = function(){
+        var histData = this.getModel("history").getData();
+        localStorage.setItem("history", JSON.stringify(histData));
     };
     Component.prototype.saveCredentials = function (username, password) {
         var credentialData = {
@@ -122,8 +143,23 @@ sap.ui.define([
     };
 
     Component.prototype.isConnected = function () {
-
-        return false;
+        if (navigator.connection && Connection){
+            var connState = navigator.connection.type;
+            if (connState === Connection.NONE){
+                return false;
+            }else{
+                return true;
+            }
+        }else {
+            var model = this.getModel("connection");
+            if (model.getData() === true) {
+                console.log("you have connection");
+                return true;
+            } else {
+                console.log("you dont have connection");
+                return false;
+            }
+        }
     };
 
     Component.prototype.sendOutbox = function () {
@@ -131,6 +167,13 @@ sap.ui.define([
         var timeEvents = this.getModel("outbox");
         var userContext = this.getModel("userContext");
         var that = this;
+
+        //read from i18n
+        var oBundle = this.getModel("i18n").getResourceBundle();
+        var successSentMsg = oBundle.getText("successSentMsg");
+        var noConnectionMsg = oBundle.getText("noConnectionMsg");
+        var problemMsg = oBundle.getText("problemMsg")
+        var problemLoginMsg = oBundle.getText("problemLoginMsg");
 
         //if timeEvents actually have data...
         if (timeEvents.getData() && timeEvents.getData().length > 0) {
@@ -142,33 +185,54 @@ sap.ui.define([
                         that.wsCreateTimeEvent.send(userContext, timeEvents).done(function (result) {
                             if (result.text === "successfully processed") {
                                 that.clearOutbox(timeEvents);
-                                deferred.resolve({outcome: "sentToServer", message: "All records succesfully sent"});
+                                deferred.resolve({outcome: "sentToServer", message: successSentMsg});
                             } else {
                                 //error handling!!!
                                 console.error("FAILED SEND OUTBOX " + result.text);
-                                deferred.reject({
-                                    outcome: "failedOutboxSend",
-                                    message: "User no logged in, re-routing to login page"
-                                });
+                                deferred.reject({outcome: "failedOutboxSend",message: problemMsg});
                             }
                         });
                     } else {
+                        console.error("NOT LOGGED IN");
                         deferred.reject({
                             outcome: "silentLoginFail",
-                            message: "User no logged in, re-routing to login page"
+                            message: problemLoginMsg
                         });
                         that.getRouter().navTo("login");
                     }
                 });
             } else {
-                deferred.resolve({outcome: "savedLocally", message: "Not Conencted"});
+                deferred.resolve({outcome: "savedLocally", message: noConnectionMsg});
             }
         }
-        return deferred.promise;
+        return deferred.promise();
     };
     Component.prototype.clearOutbox = function (outboxModel) {
         //clear outbox and save in history
+        var hisModel = this.getModel("history");
+
+
+        if(outboxModel && outboxModel.getData() && outboxModel.getData().length > 0) {
+            console.log("outmodel != null");
+            localStorage.setItem("history",JSON.stringify(outboxModel.getData()));
+
+            outboxModel.getData().forEach(function (element) {
+                hisModel.getData().push(element);
+            });
+
+            this.saveHistory();
+            localStorage.removeItem("outbox");
+            hisModel.updateBindings();
+        }
+        //localStorage.setItem("outbox", "");
         outboxModel.setData([]);
+        outboxModel.updateBindings();
+
+        //var model = this.getOwnerComponent().getModel("outbox");
+        //model.getData().push(newBooking);
+        //this.getOwnerComponent().saveOutbox();
+        //model.updateBindings();
+
     }
 
 });
