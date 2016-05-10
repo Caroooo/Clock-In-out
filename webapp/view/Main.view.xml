@@ -24,39 +24,26 @@
                 </HBox>
 
                 <Button icon="sap-icon://log" press="onLogout" class="logButton"/>
-                <Switch name="connection" state="true" change="change">
-                    <layoutData>
-                        <FlexItemData growFactor="1" />
-                    </layoutData>
-                </Switch>
             </VBox>
         </u:paneContent>
 
 
-                <IconTabBar
-                        id="idIconTabBarSeparatorNoIcon"
-                        expanded="true"
-                        expandable="false">
-                    <items>
+        <IconTabBar
+                id="idIconTabBarSeparatorNoIcon"
+                expanded="true"
+                expandable="false">
+            <items>
                         <IconTabFilter text="{i18n>clockItMenuText}" icon="sap-icon://create-entry-time" class="iconSize2">
-                        <!--<IconTabFilter text="{i18n>clockItMenuText}">-->
-
-                        <mvc:XMLView viewName="sap.ui.demo.wt.view.Stamp"/>
+                            <mvc:XMLView id="swipe-page1" viewName="sap.ui.demo.wt.view.Stamp"/>
                         </IconTabFilter>
                         <IconTabFilter text="{i18n>OutboxMenuText}" icon="sap-icon://lateness" class="iconSize2">
-                        <!--<IconTabFilter text="{i18n>OutboxMenuText}">-->
-
-                        <mvc:XMLView viewName="sap.ui.demo.wt.view.Outbox"/>
+                            <mvc:XMLView id="swipe-page2" viewName="sap.ui.demo.wt.view.Outbox"/>
                         </IconTabFilter>
                         <IconTabFilter text="{i18n>HistoryMenuText}" icon="sap-icon://complete" class="iconSize2">
-                        <!--<IconTabFilter text="{i18n>HistoryMenuText}" >-->
-                        <mvc:XMLView viewName="sap.ui.demo.wt.view.History"/>
+                            <mvc:XMLView id="swipe-page3" viewName="sap.ui.demo.wt.view.History"/>
                         </IconTabFilter>
-
-                    </items>
-                </IconTabBar>
+            </items>
+        </IconTabBar>
 
     </u:Shell>
-
-
 </mvc:View>

@@ -19,11 +19,12 @@ sap.ui.define([
 
             this._iEvent = 0;
 
+
         },
         newBooking : function (type) {
 
             var dateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "yyyyMMdd"});
-            var timeFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "HHmmSS"});
+            var timeFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "HHmmss"});
             var that = this;
 
             var currentDate = new Date();

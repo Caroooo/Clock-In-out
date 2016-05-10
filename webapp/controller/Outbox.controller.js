@@ -4,11 +4,12 @@
 
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
+    'sap/m/GroupHeaderListItem',
     "sap/ui/model/json/JSONModel",
     "sap/ui/demo/wt/ws/WsCreateTimeEvent",
     "sap/ui/demo/wt/ws/WsLogon",
     'sap/m/MessageBox'
-], function (Controller, JSONModel, WsCreateTimeEvent, WsLogon, MessageBox) {
+], function (Controller, GroupHeaderListItem, JSONModel, WsCreateTimeEvent, WsLogon, MessageBox) {
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Outbox", {
 
@@ -30,30 +31,6 @@ sap.ui.define([
             this.getOwnerComponent().sendOutbox();
 
         },
-        handleSendToWebService: function(oEvent) {
-            //var userContext = this.getOwnerComponent().getModel("userContext");
-            //var outbox = this.getView().getModel("outbox");
-            //var that = this;
-            ///*
-            // * Notice the spelling mistake!!! tickedId (when it should have been ticketId). Used the wrongly spelled word :-(
-            // */
-            //if (!userContext.getProperty("/tickedId")) {
-            //    this.wsLogon.send(userContext).done(function(newUserContext) {
-            //        var component = that.getOwnerComponent();
-            //        component.setModel(newUserContext, "userContext");
-            //        if (component.isLoggedIn() === true) {
-            //            userContext = this.getOwnerComponent().getModel("userContext");
-            //            this.sendOutbox(userContext, outbox);
-            //        } else {
-            //            MessageBox.error("Login failed. Cannot send Outbox to server. Logout and back in again before retrying.");
-            //        }
-            //    });
-            //} else {
-            //    this.sendOutbox(userContext, outbox);
-            //}
-
-        },
-
 
         formatClockType: function(value){
             // read msg from i18n model
@@ -63,20 +40,13 @@ sap.ui.define([
 
             return value === "P10" ? inType : outType;
         },
-
-
-        sendOutbox: function(userContext, outbox) {
-
-            //this.wsCreateTimeEvent.send(userContext, outbox).then(function(result) {
-            //    if (result.text === "successfully processed") {
-            //        MessageBox.success("The outbox with " + outbox.length + " records, was successfully sent to the server");
-            //        outbox.setData({});
-            //        outbox.updateBindings();
-            //    } else {
-            //        MessageBox.error("An error occured sending the Outbox. Please try again later.\n\n" + result.text);
-            //    }
-            //});
-
+        getGroupHeader: function (oGroup){
+            //20160502
+            return new GroupHeaderListItem({
+                //title: oGroup.key,
+                title: oGroup.key[6] + oGroup.key[7] +"."+ oGroup.key[4] + oGroup.key[5]+"."+ oGroup.key[0] + oGroup.key[1] + oGroup.key[2] + oGroup.key[3],
+                upperCase: false
+            } );
         }
 
     });

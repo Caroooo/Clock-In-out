@@ -130,6 +130,10 @@ $blum-orange: #FF671F;
     padding:0 !important;
 }
 
+.sapUiUfdSpltContCntnt{
+    overflow: hidden !important;
+}
+
 .sapMITBTextOnly .sapMITBText {
     font-size: medium !important;
     margin-left: 20px !important;
@@ -277,11 +281,11 @@ $blum-orange: #FF671F;
 }
 
 /* calendar*/
-.sapMInputBaseInner {
-    font-size: large !important;
-    padding-left: 0 !important;
+/*.sapMInputBaseInner {*/
+    /*font-size: large !important;*/
+    /*padding-left: 0 !important;*/
 
-}
+/*}*/
 
 /*outbox*/
 .sapMList .sapMLIB.sapMGHLI {
@@ -290,17 +294,17 @@ $blum-orange: #FF671F;
     font-size: large !important;
     font-weight: normal;
     color: #FF671F !important;
-    /*  background: #f7f7f7;*/
     background-color: transparent !important;
     border-bottom: none !important;
     margin-top: 1rem !important;
 }
 
+
 .sapMITB,
 .sapMITBContainerContent,
 .sapMITBContainerContent .sapMITBContent,
 .sapMITBContainerContent .sapMITBContent .sapUiView.sapUiViewDisplayBlock.sapUiXMLView{
-    height: 100%;
+    height: 95% !important;
 }
 
 .sapMText.sapMObjLTitle {
@@ -321,6 +325,9 @@ $blum-orange: #FF671F;
 .sapMObjLNumber {
     font-size: 1rem !important;
 }
+.sapMListTblCell:first-child, .sapMListTblNone:first-child + .sapMListTblCell{
+    padding-left: 3rem !important;
+}
 
 /*dialog*/
 .sap-desktop .sapMIBar.sapMFooter-CTX {
@@ -340,46 +347,6 @@ $blum-orange: #FF671F;
     height: 1.5rem !important;
     position: relative !important;
 }
-
-/*timepicker*/
-
-/*.sapMInputBaseInner:not(.sapMInputBaseReadonlyInner):not(.sapMInputBaseStateInner):not(.sapMInputBaseDisabledInner):hover {*/
-    /*border-color: grey !important;*/
-/*}*/
-
-/*.sapMTimePicker.sapMTPInputActive .sapUiIcon,*/
-/*.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem:active{*/
-    /*background-color: grey !important;*/
-/*}*/
-/*.sapMTimePicker.sapMTPInputActive .sapMInputBase,*/
-/*.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner{*/
-    /*border: 1px solid grey !important;*/
-/*}*/
-
-/*.sapMTimePicker.sapMTPInputActive .sapMInputBase:active,*/
-/*.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner:active{*/
-    /*border: 1px solid grey !important;*/
-    /*background-color: grey !important;*/
-/*}*/
-
-/*.sapMTimePicker.sapMTPInputActive .sapMInputBaseInner:hover {*/
-    /*border: 1px solid grey !important;*/
-    /*color: white !important;*/
-/*}*/
-
-/*.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem:hover {*/
-    /*background-color: grey !important;*/
-    /*color: white !important;*/
-/*}*/
-
-/*.sapMTimePickerDropDown .sapMTimePickerContainer .sapMTPColumn .sapMTimePickerSlider .sapMTimePickerItem {*/
-    /*background-color: lightgrey !important;*/
-/*}*/
-
-/*calendar*/
-/*.sapUiCalHead>.sapUiCalHeadB, .sapUiCalCancel, .sap-desktop .sapUiCalHead>.sapUiCalHeadB:hover, .sap-desktop .sapUiCalHead>.sapUiCalHeadB:focus {*/
-    /*color: darkgrey !important;*/
-/*}*/
 
 .sapMTitle.currentDate{
     color: darkgrey;
@@ -418,4 +385,67 @@ $blum-orange: #FF671F;
     border: medium  !important;
     border-color: white !important;
 }
+
+/*history outbox table*/
+/*.sapMListTblEven, .sapMListBGTranslucentEven .sapMLIB, .sapUiTableRowEven, .sapMListTblCellEven, .sapMObjLItem{*/
+    /*background-color: orange !important;*/
+/*}*/
+
+
+/*.sapMListBGTranslucent .sapMLIB, .sapMListTblCell{*/
+    /*background-color: whitesmoke !important;*/
+/*}*/
+
+/*.sapUiTable, .sapUiTable> div:last-child, .sapUiTableCHdr .sapUiTableColHdrCnt, .sapUiTableColRowHdr, .sapUiTableColHdr .sapUiTableCol, .sapUiTableColHdr .sapUiTableTr > td{*/
+    /*border: none !important;*/
+    /*background-color: orange !important;*/
+/*}*/
+
+.sapUiTableCHdr .sapUiTableColHdrCnt,
+.sapUiTableRSel .sapUiTableRowHdrScr,
+.sapUiTableRSel .sapUiTableRowHdrScr,
+.sapUiTableRowHdr,
+.sapUiTableCol, .sapUiTableTr > td,
+.sapUiTableTr > td{
+    border: none !important;
+    /*background-color: orange !important;*/
+}
+.sapUiTableCHdr .sapUiTableColHdrCnt,
+.sapUiTableRSel .sapUiTableRowHdrScr,
+.sapUiTableRSel .sapUiTableRowHdrScr{
+    display: none !important;
+
+}
+.sapUiTableRSel .sapUiTableColHdrScr, .sapUiTableRSel .sapUiTableColHdrFixed, .sapUiTableRSel .sapUiTableCtrlScr, .sapUiTableRSel .sapUiTableCtrlScrFixed {
+    margin-left: 10px !important;
+    /*background-color: orange !important;*/
+}
+
+.sapMListTblEven{
+    background-color: #E3E3E3 !important;
+}
+
+
+.sapUiTableCtrl tr.sapUiTableRowEven.sapUiTableRowHvr,
+.sapUiTableCtrl tr.sapUiTableRowHvr.sapUiTableRowEven>td{
+    background-color: #E9E9E9 !important;
+}
+
+.sapUiTableCtrl tr.sapUiTableRowHvr, tr.sapUiTableRowHvr .sapUiLbl, tr.sapUiTableRowHvr .sapUiTf, tr.sapUiTableRowHvr .sapUiLnk, tr.sapUiTableRowHvr .sapUiLnk:visited, tr.sapUiTableRowHvr .sapUiLnk:hover, .sapUiTableCol:hover, .sapUiTableCol:hover .sapUiLbl, .sapUiTableCol:hover .sapUiTf, .sapUiTableCol:hover .sapUiLnk, .sapUiTableCol:hover .sapUiLnk:visited, .sapUiTableCol:hover .sapUiLnk:hover{
+    color: #000000 !important;
+}
+
+
+/*busy indicator*/
+.sapUiLocalBusyIndicatorAnimation > div::before,
+.sapUiLocalBusyIndicatorAnimation > div::after{
+    background-color: #FF671F !important;
+    color: #FF671F !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+
+
 

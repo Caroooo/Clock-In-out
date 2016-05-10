@@ -3,7 +3,8 @@
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m"
         height="100%"
-        width="100%">
+        width="100%"
+        class="swipe-page">
     <Page
             class="sapUiContentPadding"
             showNavButton="false"
@@ -12,26 +13,24 @@
 
         <PullToRefresh
                 id="pullToRefresh"
+                iconDensityAware="false"
                 refresh="handleRefresh"/>
 
-        <Table items="{path: 'history>/', sorter: {path : 'history>Date', formatter: '.formatDate', group: true}}">
-            <columns>
-                <Column width="40%"></Column>
-                <Column width="40%"> </Column>
-                <Column hAlign="Right"></Column>
-            </columns>
-            <items>
-                <ColumnListItem>
-                    <cells>
-                        <Text text="{path: 'history>Date', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'dd.MM.yyyy', source:{pattern:'yyyyMMdd'}}}"/>
-                        <Text text="{path: 'history>Time', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'HH:mm', source:{pattern:'HHmmSS'}}}"/>
-                        <Text text="{path: 'history>ClockType', formatter: '.formatClockType'}"/>
-                    </cells>
-                </ColumnListItem>
-            </items>
-        </Table>
+        <Table items="{path: 'history>/', sorter:{path : 'history>Date', descending:true, group:true}, groupHeaderFactory:'.getGroupHeader'}">
 
-
+        <columns>
+                    <Column width="40%"></Column>
+                    <Column hAlign="Right" width="40%"></Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{path: 'history>Time', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'HH:mm', source:{pattern:'HHmmSS'}}}"/>
+                            <Text text="{path: 'history>ClockType', formatter: '.formatClockType'}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
     </Page>
 
 </mvc:View>

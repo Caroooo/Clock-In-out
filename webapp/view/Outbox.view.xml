@@ -3,7 +3,8 @@
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m"
         height="100%"
-        width="100%">
+        width="100%"
+        class="swipe-page">
     <Page
             class="sapUiContentPadding"
             showNavButton="false"
@@ -14,16 +15,14 @@
                 id="pullToRefresh"
                 refresh="handleRefresh"/>
 
-        <Table items="{path: 'outbox>/',type:'sap.ui.model.type.String', sorter: {path : 'outbox>Date', formatter: '.formatDate', group: true}}">
+        <Table items="{path: 'outbox>/', sorter: {path : 'outbox>Date', descending:true, group:true}, groupHeaderFactory:'.getGroupHeader'}">
             <columns>
                 <Column width="40%"></Column>
-                <Column width="40%"> </Column>
-                <Column hAlign="Right"></Column>
+                <Column hAlign="Right" width="40%"></Column>
             </columns>
             <items>
                 <ColumnListItem>
                     <cells>
-                        <Text text="{path: 'outbox>Date', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'dd.MM.yyyy', source:{pattern:'yyyyMMdd'}}}"/>
                         <Text text="{path: 'outbox>Time', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'HH:mm', source:{pattern:'HHmmSS'}}}"/>
                         <Text text="{path: 'outbox>ClockType', formatter: '.formatClockType'}"/>
                     </cells>

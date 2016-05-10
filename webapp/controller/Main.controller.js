@@ -4,15 +4,15 @@
 
 
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], function (Controller) {
+    "sap/ui/core/mvc/Controller",
+    'jquery.sap.global'
+], function (Controller, jQuery) {
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Main", {
         onInit: function () {
 
-            //if connected and outbox not empty,
-                    //send Outbox
-
+            this.getOwnerComponent().sendOutbox();
+            this._setupTransitions();
         },
         change : function(oControlEvent){
             var model = this.getOwnerComponent().getModel("connection");
@@ -48,7 +48,25 @@ sap.ui.define([
             oShell.setShowPane(!bState);
 
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            localStorage.removeItem("credential");
             oRouter.navTo("login");
+        },
+        _setupTransitions: function() {
+            $('body').on('swipeleft', '.swipe-page', function(e) {
+                this._navigate(e.currentTarget.parentNode.id, 'left');
+            }.bind(this));
+            $('body').on('swiperight', '.swipe-page', function(e) {
+                this._navigate(e.currentTarget.parentNode.id, 'right');
+            }.bind(this));
+        },
+        _navigate: function(id, direction) {
+            var newId, match, add;
+            match = id.match(/.*swipe-page([0-9]{1,}$)/);
+            add = (direction === 'left') ? 1 : -1
+            if (match && match.length > 1) {
+                newId = this.createId('swipe-page' + (Number(match[1]) + add));
+                this.byId('viewPadding').to(newId, 'slide-' + direction);
+            }
         }
 
     });
