@@ -31,7 +31,7 @@ sap.ui.define([
         },
 
         formatClockType: function(value){
-            // read msg from i18n model
+            // read from i18n model
             var oBundle = this.getView().getModel("i18n").getResourceBundle();
             var inType = oBundle.getText("stampTypeIn");
             var outType = oBundle.getText("stampTypeOut");
@@ -40,9 +40,8 @@ sap.ui.define([
         },
 
         getGroupHeader: function (oGroup){
-            //20160502
             return new GroupHeaderListItem({
-                //title: oGroup.key,
+                //format the text of the grouping --> convert Date yyyyMMdd into dd.MM.yyyy
                 title: oGroup.key[6] + oGroup.key[7] +"."+ oGroup.key[4] + oGroup.key[5]+"."+ oGroup.key[0] + oGroup.key[1] + oGroup.key[2] + oGroup.key[3],
                 upperCase: false
             } );

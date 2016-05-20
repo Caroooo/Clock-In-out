@@ -5,15 +5,19 @@
 
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    'jquery.sap.global'
-], function (Controller, jQuery) {
+    "sap/m/IconTabBar",
+    "jquery.sap.global"
+], function (Controller,IconTabBar, jQuery) {
     "use strict";
     return Controller.extend("sap.ui.demo.wt.controller.Main", {
         onInit: function () {
 
-            this.getOwnerComponent().sendOutbox();
+            this.getOwnerComponent().sendOutbox()
+
+            //swipe
             this._setupTransitions();
         },
+        //needed for testing on computer --> switch to turn on and off internet-connection. Not needed for mobile app
         change : function(oControlEvent){
             var model = this.getOwnerComponent().getModel("connection");
 
@@ -25,7 +29,7 @@ sap.ui.define([
                 model.setData(false);
             }
         },
-
+        //open/close Menu
         handlePressConfiguration: function(oEvent) {
             var oItem = oEvent.getSource();
             var oShell = this.getView().byId("myShell");
@@ -51,22 +55,29 @@ sap.ui.define([
             localStorage.removeItem("credential");
             oRouter.navTo("login");
         },
+        //swipe
         _setupTransitions: function() {
+            console.log("setUpTransition started!");
             $('body').on('swipeleft', '.swipe-page', function(e) {
-                this._navigate(e.currentTarget.parentNode.id, 'left');
+                this._navigate(e.currentTarget.id, 'left');
             }.bind(this));
             $('body').on('swiperight', '.swipe-page', function(e) {
-                this._navigate(e.currentTarget.parentNode.id, 'right');
+                this._navigate(e.currentTarget.id, 'right');
             }.bind(this));
         },
+        //swipe
         _navigate: function(id, direction) {
-            var newId, match, add;
-            match = id.match(/.*swipe-page([0-9]{1,}$)/);
-            add = (direction === 'left') ? 1 : -1
-            if (match && match.length > 1) {
-                newId = this.createId('swipe-page' + (Number(match[1]) + add));
-                this.byId('viewPadding').to(newId, 'slide-' + direction);
+            console.log("navigate started");
+            var actualTabKey = parseInt(this.byId('idIconTabBarSeparatorNoIcon').getSelectedKey().substring(8,9));
+            if(direction === 'left' && actualTabKey < 2){
+                var nextTabKey = actualTabKey + 1;
+            }else if(actualTabKey > 0){
+                var nextTabKey = actualTabKey - 1;
+            }else{
+                var nextTabKey = actualTabKey;
             }
+
+            this.byId('idIconTabBarSeparatorNoIcon').setSelectedKey("__filter" + (nextTabKey));
         }
 
     });

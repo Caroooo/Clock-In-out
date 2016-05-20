@@ -5,7 +5,8 @@
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m"
         heigth="100%"
-        class="viewPadding">
+        class="viewPadding"
+        id="main">
 
 
     <u:Shell id="myShell" icon="logo-blum.png">
@@ -27,23 +28,23 @@
             </VBox>
         </u:paneContent>
 
-
-        <IconTabBar
-                id="idIconTabBarSeparatorNoIcon"
-                expanded="true"
-                expandable="false">
-            <items>
-                        <IconTabFilter text="{i18n>clockItMenuText}" icon="sap-icon://create-entry-time" class="iconSize2">
+        <App id="mainView">
+            <IconTabBar
+                    id="idIconTabBarSeparatorNoIcon"
+                    expanded="true"
+                    expandable="false">
+                <items>
+                    <IconTabFilter text="{i18n>clockItMenuText}" icon="sap-icon://create-entry-time" class="iconSize2">
                             <mvc:XMLView id="swipe-page1" viewName="sap.ui.demo.wt.view.Stamp"/>
-                        </IconTabFilter>
-                        <IconTabFilter text="{i18n>OutboxMenuText}" icon="sap-icon://lateness" class="iconSize2">
+                    </IconTabFilter>
+                    <IconTabFilter text="{i18n>OutboxMenuText}" icon="sap-icon://lateness" class="iconSize2">
                             <mvc:XMLView id="swipe-page2" viewName="sap.ui.demo.wt.view.Outbox"/>
-                        </IconTabFilter>
-                        <IconTabFilter text="{i18n>HistoryMenuText}" icon="sap-icon://complete" class="iconSize2">
+                    </IconTabFilter>
+                    <IconTabFilter text="{i18n>HistoryMenuText}" icon="sap-icon://complete" class="iconSize2">
                             <mvc:XMLView id="swipe-page3" viewName="sap.ui.demo.wt.view.History"/>
-                        </IconTabFilter>
-            </items>
-        </IconTabBar>
-
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </App>
     </u:Shell>
 </mvc:View>

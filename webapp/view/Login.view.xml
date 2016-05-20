@@ -1,3 +1,4 @@
+<!--change here to "sap.ui.demo.wt.controller.Login2" to use the Login2 controller so you dont have to login -->
 <mvc:View
         controllerName="sap.ui.demo.wt.controller.Login"
         xmlns="sap.m"
@@ -7,14 +8,11 @@
             class="loginPane"
             width="auto">
         <content>
-
             <Image
                     src="logo_blumO.png"
                     densityAware="false"
                     width="7rem"
                     />
-
-
             <Input
                     id="BAUInput"
                     class="myInput"
@@ -29,8 +27,6 @@
 							maxLength: 8
 						}
 					}"/>
-
-
             <Input
                     type="Password"
                     class="myInput"
@@ -42,14 +38,10 @@
 							minLength: 6
 						}
 					}"/>
-
-
             <Button
                     text="login"
                     press="onLogin"
                     class="logButton"/>
-
         </content>
     </Panel>
-
 </mvc:View>

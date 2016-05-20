@@ -17,20 +17,18 @@
                 refresh="handleRefresh"/>
 
         <Table items="{path: 'history>/', sorter:{path : 'history>Date', descending:true, group:true}, groupHeaderFactory:'.getGroupHeader'}">
-
-        <columns>
-                    <Column width="40%"></Column>
-                    <Column hAlign="Right" width="40%"></Column>
-                </columns>
-                <items>
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="{path: 'history>Time', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'HH:mm', source:{pattern:'HHmmSS'}}}"/>
-                            <Text text="{path: 'history>ClockType', formatter: '.formatClockType'}"/>
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
+            <columns>
+                <Column width="40%"></Column>
+                <Column hAlign="Right" width="40%"></Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{path: 'history>Time', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'HH:mm', source:{pattern:'HHmm'}}}"/>
+                        <Text text="{path: 'history>ClockType', formatter: '.formatClockType'}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
     </Page>
-
 </mvc:View>

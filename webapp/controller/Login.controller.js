@@ -41,6 +41,7 @@ sap.ui.define([
             var that = this;
             var model = this.getView().getModel();
             var userid = model.getProperty("/userid");
+            //md5 is used for encrypting the password
             var password = b64_md5(model.getProperty("/password"));
             console.log("username: " + userid + ", password: " + password);
 
@@ -48,13 +49,17 @@ sap.ui.define([
             userContext.setProperty("/username", userid);
             userContext.setProperty("/password", password);
 
+            // read from i18n model
+            var oBundle = this.getView().getModel("i18n").getResourceBundle();
+            var errorMsg = oBundle.getText("LoginError");
+
             this.loginWebService.send(userContext).done(function(newUserContext) {
                 component.setModel(newUserContext, "userContext");
                 if (component.isLoggedIn() === true) {
                     component.getRouter().navTo("main");
                     that.getOwnerComponent().saveCredentials(userid, password);
                 } else {
-                    MessageBox.error("Logon Failed. Please check username/password and try again.");
+                    MessageBox.error(errorMsg);
                 }
             });
 

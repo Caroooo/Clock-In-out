@@ -21,25 +21,21 @@ sap.ui.define([
 
 	});
 
-	/*
-	 * This function assumes user is logged in, so the caller should have checked this. Currently this check is not implemented. This function takes the userContext
-	 * (stored in the Component), and a JSONModel of all time events and builds the XML Request object from this information and passes it to the SOAPModel which
-	 * should send the request.
-	 */
+	//user should already be logedin on this point
 	WsCreateTimeEvent.prototype.send = function(userContext, timeEventsModel) {
 		var that = this;
 
 		var deferred = jQuery.Deferred();
 		var request = that.requestTemplate.find("Envelope").clone();
 
-		request.find("consumer").text("hybrid-app"); // this should change to something that helps identify the device (can be useful for debugging logs).
+		request.find("consumer").text("hybrid-app");
 		request.find("username").text(userContext.getProperty("/username"));
 
 		var reqInput = request.find("reqInput");
 		reqInput.find("userName").text(userContext.getProperty("/username"));
 		reqInput.find("ticketId").text(userContext.getProperty("/tickedId"));
 		var personnelTimeEvent = reqInput.find("personnelTimeEvents").clone();
-		reqInput.find("personnelTimeEvents").remove(); // pop the original.
+		reqInput.find("personnelTimeEvents").remove();
 
 		var timeEvents = timeEventsModel.getData();
 		timeEvents.forEach(function(timeEvent) {
@@ -51,13 +47,7 @@ sap.ui.define([
 		})
 
 		this.soapModel.loadData(request).done(function(data) {
-			// a very VERY basic test to see if what was sent
-			// is reporting success. A more complete solution
-			// would be to get (and understand) all the responses
-			// that could come back (so we can handle failure cases
-			// more correctly. Right now, if we don't get "success"
-			// we resport error (and give no clues as to what the
-			// error was - just like microsoft :-) ).
+			//check if the response is positive
 			var $data = $(data);
 			var $messages = $data.find("messages");
 

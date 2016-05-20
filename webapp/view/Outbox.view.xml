@@ -10,7 +10,6 @@
             showNavButton="false"
             showHeader="false">
 
-
         <PullToRefresh
                 id="pullToRefresh"
                 refresh="handleRefresh"/>
@@ -23,14 +22,11 @@
             <items>
                 <ColumnListItem>
                     <cells>
-                        <Text text="{path: 'outbox>Time', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'HH:mm', source:{pattern:'HHmmSS'}}}"/>
+                        <Text text="{path: 'outbox>Time', type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'HH:mm', source:{pattern:'HHmm'}}}"/>
                         <Text text="{path: 'outbox>ClockType', formatter: '.formatClockType'}"/>
                     </cells>
                 </ColumnListItem>
             </items>
         </Table>
-
-
     </Page>
-
 </mvc:View>

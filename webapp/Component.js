@@ -6,7 +6,8 @@ sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/model/json/JSONModel",
     "sap/ui/demo/wt/ws/WsCreateTimeEvent",
-    "sap/ui/demo/wt/ws/WsLogon"], function (UIComponent, JSONModel, WsCreateTimeEvent, WsLogon) {
+    "sap/ui/demo/wt/ws/WsLogon",
+    "sap/m/NavContainer"], function (UIComponent, JSONModel, WsCreateTimeEvent, WsLogon, NavContainer) {
     "use strict";
     var Component = UIComponent.extend("sap.ui.demo.wt.Component", {
         metadata: {
@@ -15,22 +16,23 @@ sap.ui.define([
     });
 
     Component.prototype.init = function () {
+        //swipe
+        this._setUpSwipeAnimations();
 
         UIComponent.prototype.init.apply(this, arguments);
 
-        this.wsLogon = new WsLogon(); // loading this, so I know it will be fully initialized and ready to use if I need it (it needs time to load the
-        // request.xml)
+        this.wsLogon = new WsLogon();
         this.wsCreateTimeEvent = new WsCreateTimeEvent();
 
-        // model for Date and Time
 
+        // model for Date and Time in StampView
         var oData = {
             myDate: new Date()
         };
-
         var oModel = new JSONModel(oData);
         this.setModel(oModel);
 
+        //update Time every second
         function updateTime() {
             oModel.updateCurrentTime;
             oModel.setData({
@@ -38,25 +40,24 @@ sap.ui.define([
             });
             oModel.updateBindings();
         }
-
         setInterval(updateTime, 1000);
 
+        //model for Outbox, get Data from localStorage
         var outboxModel = new JSONModel();
         this.setModel(outboxModel, "outbox");
         var outboxStr = localStorage.getItem("outbox");
         if (outboxStr) {
             outboxModel.setData(JSON.parse(outboxStr));
-
         } else {
             outboxModel.setData([]);
         }
 
+        //credential Model, get Credentials from LocalStorage
         var credentialModel = new JSONModel();
         this.setModel(credentialModel, "credential");
         var credentialStr = localStorage.getItem("credential");
         if (credentialStr) {
             credentialModel.setData(JSON.parse(credentialStr));
-
         } else {
             credentialModel.setData([]);
         }
@@ -81,9 +82,9 @@ sap.ui.define([
         // create the views based on the url/hash
         this.getRouter().initialize();
 
-        // check if credentials are saved
+        // check if credentials are saved and route to the right page
         if (credentials.username && credentials.password) {
-            this.sendOutbox(); // will maybe fail --> fix it!
+            this.sendOutbox();
             this.getRouter().navTo("main");
         } else {
             this.getRouter().navTo("login");
@@ -104,9 +105,6 @@ sap.ui.define([
         this.setModel(connectionModel, "connection");
         connectionModel.setData(true);
 
-        //swipe
-        //this._setUpSwipeAnimations();
-
     };
 
     Component.prototype.saveOutbox = function () {
@@ -123,7 +121,6 @@ sap.ui.define([
             username: username,
             password: password
         };
-        // var credentialData = this.getModel("credential").getData();
         localStorage.setItem("credential", JSON.stringify(credentialData));
     };
 
@@ -137,9 +134,6 @@ sap.ui.define([
 
     };
 
-    /*
-     * A Convinience method, that simply looks at the current userContext for login status returns boolean true if user is logged in.
-     */
     Component.prototype.isLoggedIn = function () {
         return this.getModel("userContext").getProperty("/logonResult") === "OK";
     };
@@ -244,7 +238,6 @@ sap.ui.define([
         //clear outbox and save in history
         var hisModel = this.getModel("history");
 
-
         if (outboxModel && outboxModel.getData() && outboxModel.getData().length > 0) {
             console.log("outmodel != null");
             localStorage.setItem("history", JSON.stringify(outboxModel.getData()));
@@ -262,19 +255,20 @@ sap.ui.define([
 
 
     };
-    //Component.prototype._setUpSwipeAnimations = function() {
-    //
-    //    var router = this.getRouter();
-    //    var slide = router.slide;
-    //    console.log("router: " + router + "slide: " +slide);
-    //    //technically, swiping from left to right just means
-    //    //reversing the "to/back functions" of the existing slide animation
-    //    router["slide-left"] = slide;
-    //    router["slide-right"] = {
-    //        to: slide.back,
-    //        back: slide.to
-    //    }
-    //};
+    //swipe
+    Component.prototype._setUpSwipeAnimations = function() {
 
+        console.log("NavCon: "+ NavContainer);
+        console.log("transitions: " +NavContainer.transitions);
+        console.log("slide: " +NavContainer.transitions.slide);
+
+        var slide = NavContainer.transitions.slide;
+
+        NavContainer.transitions["slide-left"] = slide;
+        NavContainer.transitions["slide-right"] = {
+            to: slide.back,
+            back: slide.to
+        };
+    };
 
 });
