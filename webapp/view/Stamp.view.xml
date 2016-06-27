@@ -3,31 +3,26 @@
         xmlns:l="sap.ui.layout"
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc"
-        class="swipe-page">
-    <l:VerticalLayout
-            class="sapUiContentPadding"
-            id="oVerticalContent"
-            width="100%">
-        <l:content>
-            <VBox class="sapUiSmallMargin">
-                <FlexBox
-                        height="60px"
-                        alignItems="Center"
-                        justifyContent="Center">
+        class="swipe-page"
+        height="100%">
+    <FlexBox
+            height="100%"
+            alignItems="Center"
+            justifyContent="Center">
+        <items>
+            <l:VerticalLayout
+                    class="sapUiContentPadding"
+                    id="oVerticalContent"
+                    width="100%">
+                <l:content>
+
+                    <VBox class="stampView">
+
                     <Title class="currentDate"
                            text="{path: '/myDate', type:'sap.ui.model.type.Date', formatOptions:{style: 'full'} }"/>
-                </FlexBox>
-                <FlexBox
-                        height="60px"
-                        alignItems="Center"
-                        justifyContent="Center">
                     <Title class="currentTime" text="{path: '/myDate', type:'sap.ui.model.type.Time'}"/>
-                </FlexBox>
-                <FlexBox
-                        height="100px"
-                        alignItems="End"
-                        justifyContent="Center">
-                    <items>
+
+                    <HBox>
                         <Button
                                 text="{i18n>clockInButtonText}"
                                 press="onClockIn"
@@ -37,9 +32,12 @@
                                 press="onClockOut"
                                 class="sapUiSmallMarginEnd"
                                 />
-                    </items>
-                </FlexBox>
-            </VBox>
-        </l:content>
-    </l:VerticalLayout>
+                    </HBox>
+
+                    </VBox>
+
+                </l:content>
+            </l:VerticalLayout>
+        </items>
+    </FlexBox>
 </mvc:View>

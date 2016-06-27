@@ -40,7 +40,7 @@ sap.ui.define([
                 });
             }
 
-            if(historyData) {
+          if(historyData) {
                 historyData.forEach(function (element) {
                     console.log(element);
                     if(parseInt(element.Date) >= date && parseInt(element.Time) > time){

@@ -1,9 +1,11 @@
 <mvc:View
         controllerName="sap.ui.demo.wt.controller.Main"
         xmlns:u="sap.ui.unified"
-        xmlns:core="sap.ui.core"
+        xmlns:l="sap.ui.layout"
         xmlns:mvc="sap.ui.core.mvc"
-        xmlns="sap.m"
+        xmlns:m="sap.m"
+        xmlns="sap.ui.commons"
+        xmlns:core="sap.ui.core"
         heigth="100%"
         class="viewPadding"
         id="main">
@@ -17,34 +19,50 @@
                     press="handlePressConfiguration"/>
         </u:headItems>
 
-        <u:paneContent>
-            <VBox class="sapUiSmallMargin">
-                <HBox class="sapUiSmallMargin" binding="{path: 'credential>/'}">
-                    <core:Icon src="sap-icon://person-placeholder" class="iconSize1"/>
-                    <Title text="{credential>username}"/>
-                </HBox>
 
-                <Button icon="sap-icon://log" press="onLogout" class="logButton"/>
-            </VBox>
+        <u:paneContent>
+            <!--<VBox class="sapUiSmallMargin">-->
+            <l:Splitter height="20rem" width="100%" orientation="Vertical">
+
+                <m:HBox class="menuUName" binding="{path: 'credential>/'}">
+                    <!--<core:Icon src="sap-icon://person-placeholder" class="iconSize1"/>-->
+                    <m:Title text="{credential>username}" class="menuUName"/>
+                </m:HBox>
+                <l:layoutData>
+                    <l:SplitterLayoutData size="30%" resizable="false"/>
+                </l:layoutData>
+
+                <m:HBox>
+                    <core:Icon
+                            src="sap-icon://log"
+                            class="logIcon"/>
+                    <m:Link text="Logout" press="onLogout" class="logButton"/>
+                </m:HBox>
+                <l:layoutData>
+                    <l:SplitterLayoutData resizable="false"/>
+                </l:layoutData>
+            </l:Splitter>
+
         </u:paneContent>
 
-        <App id="mainView">
-            <IconTabBar
+        <m:App id="mainView">
+            <m:IconTabBar
                     id="idIconTabBarSeparatorNoIcon"
                     expanded="true"
                     expandable="false">
-                <items>
-                    <IconTabFilter text="{i18n>clockItMenuText}" icon="sap-icon://create-entry-time" class="iconSize2">
-                            <mvc:XMLView id="swipe-page1" viewName="sap.ui.demo.wt.view.Stamp"/>
-                    </IconTabFilter>
-                    <IconTabFilter text="{i18n>OutboxMenuText}" icon="sap-icon://lateness" class="iconSize2">
-                            <mvc:XMLView id="swipe-page2" viewName="sap.ui.demo.wt.view.Outbox"/>
-                    </IconTabFilter>
-                    <IconTabFilter text="{i18n>HistoryMenuText}" icon="sap-icon://complete" class="iconSize2">
-                            <mvc:XMLView id="swipe-page3" viewName="sap.ui.demo.wt.view.History"/>
-                    </IconTabFilter>
-                </items>
-            </IconTabBar>
-        </App>
+                <m:items>
+                    <m:IconTabFilter text="{i18n>clockItMenuText}" icon="sap-icon://create-entry-time"
+                                     class="iconSize2">
+                        <mvc:XMLView id="swipe-page1" viewName="sap.ui.demo.wt.view.Stamp"/>
+                    </m:IconTabFilter>
+                    <m:IconTabFilter text="{i18n>OutboxMenuText}" icon="sap-icon://lateness" class="iconSize2">
+                        <mvc:XMLView id="swipe-page2" viewName="sap.ui.demo.wt.view.Outbox"/>
+                    </m:IconTabFilter>
+                    <m:IconTabFilter text="{i18n>HistoryMenuText}" icon="sap-icon://complete" class="iconSize2">
+                        <mvc:XMLView id="swipe-page3" viewName="sap.ui.demo.wt.view.History"/>
+                    </m:IconTabFilter>
+                </m:items>
+            </m:IconTabBar>
+        </m:App>
     </u:Shell>
 </mvc:View>

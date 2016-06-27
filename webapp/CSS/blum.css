@@ -64,9 +64,7 @@
 .iconSize2{
     font-size: 0.2rem;
 }
-.sapMTitle {
-    text-shadow: none !important;
-}
+
 .sapUiUfdShellHeadBegin .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:after,
 .sapUiUfdShellHeadUsrItm:before, .sapUiUfdShellHeadEnd .sapUiUfdShellHeadItm.sapUiUfdShellHeadItmSep:before{
     border: none !important;
@@ -79,6 +77,14 @@
     background-color: black;
     opacity: 0.3;
     z-index: 300;
+}
+
+.menuUName{
+    background-color: #FF671F;
+    color: white !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem;
+    padding-left: 0.5rem;
 }
 
 /*menu bar*/
@@ -146,13 +152,10 @@
 .myAppDemoWT {
     background-color: whitesmoke;
 }
-.sapMTitle {
-    text-shadow: 0px 0.0625rem 0px rgba(255, 255, 255, 0.5);
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
+
 .sapMTitleStyleAuto {
     font-size: 1.5rem !important;
+    text-align: center !important;
 }
 .sapMTitle {
     font-weight: normal;
@@ -160,9 +163,12 @@
     font-family: Arial,Helvetica,sans-serif;
     white-space: nowrap;
     cursor: text;
+    text-shadow: none !important;
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    display: block !important;
+
 }
 /*login*/
 .loginPane, .myInput, .sapMInputBaseInner{
@@ -206,12 +212,21 @@
     border: none !important;
     outline: none !important;
 }
-.logButton .sapUiIcon:before{
-    color: white !important;
+
+.logIcon{
+    color: #FF671F !important;
+    font-size: 2rem;
+    margin-left: 0.5rem;
 }
 .logButton{
     width: 100% !important;
     height: 2rem !important;
+    background-color: white !important;
+    color: black !important;
+    border: none !important;
+    font-size: 1.5rem !important;
+    padding-left: 0.5rem;
+    padding-top:0.5rem;
 }
 .sapUiSmallMarginEnd {
     margin-left: 0.5rem !important;
@@ -261,6 +276,10 @@
 .sapMListTblCell:first-child, .sapMListTblNone:first-child + .sapMListTblCell{
     padding-left: 3rem !important;
 }
+
+.stampView {
+    margin: 5rem;
+}
 /*dialog*/
 .sap-desktop .sapMIBar.sapMFooter-CTX {
     background-color: whitesmoke !important;
@@ -278,9 +297,13 @@
 }
 .sapMTitle.currentDate{
     color: darkgrey;
+    text-align: center !important;
 }
 .sapMTitle.currentTime{
     font-size: 3rem !important;
+    text-align: center !important;
+    margin-top: 2rem;
+    margin-bottom: 3.5rem;
 }
 /*Pages - Menubar*/
 .sapMPage {
