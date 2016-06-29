@@ -21,14 +21,27 @@ sap.ui.define([], function () {
     } else if (!wsSettings.modes[mode]) {
         console.error("The mode: " + mode + " doesn't seem to be supported. Valid modes would be: " + Object.keys(wsSettings.modes));
     }
-    var WsConstants = {
 
-        LOGON_WS_URL: wsSettings.modes[mode].LOGON_WS_URL,
-        CREATE_TIME_EVENT_WS_URL: wsSettings.modes[mode].CREATE_TIME_EVENT_WS_URL,
-        WS_USER: wsSettings.modes[mode].WS_USER,
-        WS_PWD: wsSettings.modes[mode].WS_PWD
+    if (wsSettings.modes){
+        var WsConstants = {
 
-    };
+            LOGON_WS_URL: wsSettings.modes[mode].LOGON_WS_URL,
+            CREATE_TIME_EVENT_WS_URL: wsSettings.modes[mode].CREATE_TIME_EVENT_WS_URL,
+            WS_USER: wsSettings.modes[mode].WS_USER,
+            WS_PWD: wsSettings.modes[mode].WS_PWD
+
+        };
+    }else{
+        var WsConstants = {
+
+            LOGON_WS_URL: "test",
+            CREATE_TIME_EVENT_WS_URL: "test",
+            WS_USER: "test",
+            WS_PWD: "test"
+
+        };
+    }
+
 
     return WsConstants;
 
