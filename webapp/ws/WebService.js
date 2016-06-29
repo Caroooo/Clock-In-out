@@ -1,7 +1,7 @@
 
 sap.ui.define([
     "sap/ui/base/EventProvider",
-    "../model/soap/SOAPModel" ], function(EventProvider, SOAPModel) {
+    "sap/ui/demo/wt/model/soap/SOAPModel" ], function(EventProvider, SOAPModel) {
     "use strict";
 
     // Super class for the webservices

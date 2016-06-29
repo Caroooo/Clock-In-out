@@ -3,13 +3,13 @@
  */
 sap.ui.define([
     "jquery.sap.global",
-    "./WsConstants",
-    "./WebService",
-    "../model/soap/SOAPModel",
+    "sap/ui/demo/wt/ws/WsConstants",
+    "sap/ui/demo/wt/ws/WebService",
+    "sap/ui/demo/wt/model/soap/SOAPModel",
     "sap/ui/model/json/JSONModel" ], function(jQuery, WsConstants, WebService, SOAPModel, JSONModel) {
     "use strict";
 
-    var REQUEST_TEMPATE_PATH = "/ws/login.request.xml";
+    var REQUEST_TEMPATE_PATH = "ws/login.request.xml";
 
     var requestTemplate;
 

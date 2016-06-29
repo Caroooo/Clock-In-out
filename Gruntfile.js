@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 
         dir: {
             webapp: "webapp",
-            dist: "dist",
+            dist: "ClockInOut/www",
             bower_components: "bower_components"
         },
 
@@ -76,7 +76,7 @@ module.exports = function (grunt) {
                 options: {
                     resources: {
                         cwd: "<%= dir.webapp %>",
-                        prefix: "todo"
+                        prefix: "sap.ui.demo.wt"
                     },
                     dest: "<%= dir.dist %>"
                 },

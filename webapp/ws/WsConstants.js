@@ -15,6 +15,9 @@ sap.ui.define([], function () {
     var wsSettings = jQuery.sap.sjax({
         url: "ws/ws-settings.json"
     }).data;
+    if (typeof wsSettings === "string"){
+    	wsSettings = JSON.parse(wsSettings);
+    }
     var mode = jQuery.sap.getUriParameters().get("mode");
     if (!mode) {
         mode = "extern";
