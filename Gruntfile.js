@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 
         dir: {
             webapp: "webapp",
-            dist: "dist",
+            dist: "C:/Users/Caroline/Desktop/timeRecording2/www",
             bower_components: "bower_components"
         },
 
