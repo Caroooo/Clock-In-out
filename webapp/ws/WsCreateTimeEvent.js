@@ -1,8 +1,8 @@
 sap.ui.define([
 		"jquery.sap.global",
-		"./WsConstants",
-		"./WebService",
-		"../model/soap/SOAPModel" ], function(jQuery, WsConstants, WebService, SOAPModel) {
+		"sap/ui/demo/wt/ws/WsConstants",
+		"sap/ui/demo/wt/ws/WebService",
+		"sap/ui/demo/wt/model/soap/SOAPModel" ], function(jQuery, WsConstants, WebService, SOAPModel) {
 	"use strict";
 
 	var REQUEST_TEMPATE_PATH = "ws/createTimeEvent.request.xml";
